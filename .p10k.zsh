@@ -1,0 +1,1 @@
+/home/ashleyx/.p10k.zsh
