@@ -1,6 +1,4 @@
 
-
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -33,16 +31,27 @@ export LC_ALL=en_IN.UTF-8
 export LANG=en_IN.UTF-8
 
 
-# ALIASES -----------------------------------------------------------
+export ZSH="$HOME/.oh-my-zsh"
 
-#resource monitoring 
-alias monitor="tmux new-session \; \
-send-keys 'nvtop' C-m \; \
-split-window -h \; \
-send-keys 'btop --utf-force' C-m \;"
+export ZSH_TMUX_DEFAULT_SESSION_NAME="default"
+export ZSH_TMUX_AUTOSTART=true
+
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+plugins=(tmux)
+
+
+# oh-my-zsh 
+
+source $ZSH/oh-my-zsh.sh
+
+# ALIASES -----------------------------------------------------------
 
 # exa
 alias ls='exa --long --icons --group-directories-first'
 alias la='exa --long --icons --group-directories-first -a'
 # nvim
 alias v='nvim'
+
+

@@ -61,3 +61,7 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+" clipboard
+set clipboard=unnamedplus
+
+
