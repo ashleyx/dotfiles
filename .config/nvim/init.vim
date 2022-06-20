@@ -1,1 +1,0 @@
-/home/ashleyx/.config/nvim/init.vim
