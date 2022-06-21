@@ -7,6 +7,16 @@
 :set softtabstop=4
 :set mouse=a
 
+:set cursorline
+:set ignorecase
+:set noswapfile
+:set splitbelow
+:set splitright
+:set scrolloff=3
+
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
 :set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 " :set list
 
@@ -25,7 +35,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'davidhalter/jedi-vim'
 Plug 'https://github.com/airblade/vim-gitgutter'
 
-set encoding=UTF-8
+:set encoding=UTF-8
 
 call plug#end()
 
@@ -37,30 +47,30 @@ nmap <F8> :TagbarToggle<CR>
 
 :set completeopt-=preview " For No Previews
 
-:colorscheme onedark
+:colorscheme space-vim-dark
 
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 
 
 " air-line
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts=1
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+    let g:airline_symbols={}
 endif
 
 " airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+let g:airline_left_sep=''
+let g:airline_left_alt_sep=''
+let g:airline_right_sep=''
+let g:airline_right_alt_sep=''
+let g:airline_symbols.branch=''
+let g:airline_symbols.readonly=''
+let g:airline_symbols.linenr=''
 
 " clipboard
-set clipboard=unnamedplus
+:set clipboard=unnamedplus
 
 " enabling transparency should come after color settings
 :highlight Normal ctermbg=none

@@ -1,3 +1,5 @@
+env:
+  TERM: alacritty
 window:
   padding:
     x: 15
