@@ -8,7 +8,6 @@
 :set softtabstop=4
 :set mouse=a
 
-
 :set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 " :set list
 
@@ -64,4 +63,5 @@ let g:airline_symbols.linenr = ''
 " clipboard
 set clipboard=unnamedplus
 
-
+" enabling transparency should come after color settings
+:highlight Normal ctermbg=none
