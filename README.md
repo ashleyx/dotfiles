@@ -1,5 +1,7 @@
 # dotfiles
 
+### TERMINAL EMULATOR: Alacritty
+
 ### SHELL : zsh
 
 zsh-autocomple https://github.com/marlonrichert/zsh-autocomplete
