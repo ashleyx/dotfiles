@@ -1,0 +1,9 @@
+
+# ALIASES -----------------------------------------------------------
+
+# exa
+alias ls='exa --long --icons --group-directories-first'
+alias la='exa --long --icons --group-directories-first -a'
+# nvim
+alias v='nvim'
+alias vi='nvim'
