@@ -73,3 +73,7 @@ alias la='exa --long --icons --group-directories-first -a'
 alias v='nvim'
 alias vi='nvim'
 
+source $HOME/.zoxide
+
+
+

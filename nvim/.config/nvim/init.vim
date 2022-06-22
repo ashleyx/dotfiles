@@ -34,6 +34,7 @@ Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple c
 Plug 'scrooloose/nerdcommenter'
 Plug 'davidhalter/jedi-vim'
 Plug 'https://github.com/airblade/vim-gitgutter'
+Plug 'junegunn/fzf'
 
 :set encoding=UTF-8
 
