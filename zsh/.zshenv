@@ -9,3 +9,6 @@ export LANG=en_IN.UTF-8
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
+
+export LESSHISTFILE=-
+
