@@ -41,3 +41,6 @@ colors:
     magenta: '0xe1acff'
     cyan:    '0xa3f7ff'
     white:   '0xffffff'
+
+key_bindings:
+  - { key: Q, mods: Control, action: Quit }
