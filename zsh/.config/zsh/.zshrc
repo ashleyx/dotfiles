@@ -17,7 +17,7 @@ fi
 
 
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+HISTFILE=~/.cache/.histfile
 HISTSIZE=10000
 SAVEHIST=50000
 setopt beep notify

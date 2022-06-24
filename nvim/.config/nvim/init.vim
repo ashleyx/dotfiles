@@ -52,8 +52,7 @@ nnoremap <SPACE> <Nop>
 let mapleader=" "
 
 " Nerdtree keys
-nnoremap <C-f> :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-f> :NERDTreeToggle %<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 " Tagbar toggle
 nmap <F8> :TagbarToggle<CR>
@@ -63,6 +62,8 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" custon telescope commands
+nnoremap <leader>FF <cmd>Telescope find_files hidden=true<cr>
 
 
 
