@@ -8,12 +8,12 @@ exists=$(tmux list-sessions 2>/dev/null| grep $session1)
 if [ "$exists" = "" ]
 then
 	tmux new-session -d -s $session1 -n 'Code'
-	tmux send-keys -t $session1:Code.1 'cd ~/git && nvim' C-m
-	tmux split-window -h -t $session1
-	tmux send-keys -t $session1:Code.2 'python' C-m
-	tmux select-pane -t $session1:Code.1
+	tmux send-keys -t $session1:Code.1 'cd ~/dotfiles && nvim' C-m
+	#tmux split-window -h -t $session1
+	#tmux send-keys -t $session1:Code.2 'python' C-m
+	#tmux select-pane -t $session1:Code.1
 	tmux new-window -t $session1
-	tmux send-keys -t $session1:2.1'macchina' C-m
+	tmux send-keys -t $session1:2.1 'macchina' C-m
 	return
 fi
 

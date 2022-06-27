@@ -5,7 +5,7 @@ window:
     x: 15
     y: 15
   decorations: none
-  opacity: 0.90
+  opacity: 0.95
   startup_mode: Fullscreen
 scrolling:
   history: 50000
