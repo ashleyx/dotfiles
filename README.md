@@ -5,6 +5,9 @@
 
 
 #### SHELL : zsh
+add: export ZDOTDIR="$HOME"/.config/zsh
+to: /etc/zsh/zshenv
+
 
 
 zsh-autocomple https://github.com/marlonrichert/zsh-autocomplete
@@ -15,6 +18,3 @@ powerlvl10k theme: https://github.com/romkatv/powerlevel10k
 
 vim-plug https://github.com/junegunn/vim-plug
 
-#### BLING: 
-
-macchina https://github.com/Macchina-CLI/macchina
