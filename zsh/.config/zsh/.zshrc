@@ -6,7 +6,8 @@ source $ZDOTDIR/.tmux-setup.sh
 if [ "$XDG_SESSION_TYPE" = "wayland" ] && [ ! -v TMUX ]
 then
 	sway_id=$(swaymsg -t get_workspaces | jq '.[] | select(.focused==true) | .num')
-	if [ "$sway_id" = "2" ]
+	local_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Local | awk '{print $2}')
+	if [ "$sway_id" = "2" ] && [ "$local_attached" = "0" ]
 	then
 		tmux attach -t Local
 	elif [ "$sway_id" = "10" ]
