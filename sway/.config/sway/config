@@ -18,7 +18,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu kill wofi || wofi | xargs swaymsg exec --
+set $menu killall wofi || kitty --class temp -e wofi | xargs swaymsg exec --
 
 ### Output configuration
 #
