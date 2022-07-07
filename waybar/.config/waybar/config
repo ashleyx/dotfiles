@@ -1,0 +1,117 @@
+{
+    "layer": "bottom",
+    "position": "bottom",
+    "height": 30,
+
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "custom/storage", "cpu","memory", "temperature", "pulseaudio", "network", "battery", "backlight"],
+    "sway/mode": {
+        "format": " {}"
+    },
+    "sway/workspaces": {
+		"format": "<span font='15'> {icon} </span>",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "ﱘ",
+            "5": "",
+            "6": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+		"persistent_workspaces": {
+			"1":[],
+			"2":[],
+			"3":[],
+			"4":[],
+		},
+    },
+    "sway/window": {
+        "max-length": 80,
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%a  ·  %d.%m.%Y  ·  %H:%M}",
+        "tooltip": false
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 30,
+        "format": "{used:0.2f} / {total:0.0f} GB ",
+        "max-length": 13,
+        "tooltip": false
+    },
+    "battery": {
+        "bat": "BAT0",
+        "format": "{capacity}% {icon}",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "{capacity}% ",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+    "temperature": {
+        "critical-threshold": 80,
+	"format-critical": "{temperatureC}° ",
+	"format": "{temperatureC}° "
+    },
+    "network": {
+        "format": "<span font='20'>{icon}</span>",
+        "format-alt": "{ipaddr}/{cidr} {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": {
+            "wifi": [""],
+            "ethernet": [""],
+            "disconnected": ["睊"]
+        },
+        "on-click": "kitty --class custom_nmui nmtui",
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon} ",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "魯",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "default": "<span font='17'></span>"
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+    "backlight": {
+        "device": "brightnessctl",
+        "format": "{percent}% {icon}",
+        "format-alt": "{percent}% {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": ["", ""],
+        "on-scroll-down": "brightnessctl set 5%-",
+        "on-scroll-up": "brightnessctl set +5%"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": false
+    },
+   "tray": {
+        "icon-size": 20
+    }
+}

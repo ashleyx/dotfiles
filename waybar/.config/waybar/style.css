@@ -1,0 +1,147 @@
+@import "/home/ashleyx/.config/colors.css";
+
+* {
+  transition: none;
+  box-shadow: none;
+  font-size: 20;
+  border-radius: 3px;
+  font-family: "Nerd Fonts";
+}
+
+#waybar {
+  color: #000;
+  background-color: transparent;
+}
+
+#workspaces {
+  margin: 0 4px;
+  background-color: @base03;
+}
+
+#workspaces button {
+  margin: 0px 0;
+  padding: 0 4px;
+}
+
+#workspaces button.visible {
+  border-radius: 4px;
+}
+
+#workspaces button.focused {
+  border-radius: 4px;
+  background-color: @base02;
+}
+
+#workspaces button.urgent {
+  color: rgba(238, 46, 36, 1);
+}
+
+#tray {
+  margin: 4px 16px 4px 4px;
+  border-radius: 4px;
+  background-color: @base02;
+}
+
+#tray * {
+  padding: 0 6px;
+  border-left: 1px solid @base00;
+}
+
+#tray *:first-child {
+  border-left: none;
+}
+
+#mode{
+  margin: 4px 2px;
+  padding: 0 6px;
+  background-color: @base02;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#battery {
+  margin: 4px 2px;
+  padding: 0 6px;
+  background-color: @base09;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#cpu {
+  margin: 4px 2px;
+  padding: 0 6px;
+  background-color: @base04;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#memory {
+  margin: 4px 2px;
+  padding: 0 6px;
+  background-color: @base08;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#network {
+  margin: 4px 2px;
+  padding: 0 6px;
+  background-color: @base08;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#pulseaudio {
+  margin: 4px 2px;
+  padding: 0 6px;
+  background-color: @base04;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#idle_inhibitor {
+  margin: 4px 2px;
+  padding: 0 6px;
+  background-color: @base02;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#backlight {
+  margin: 4px 2px;
+  padding: 0 6px;
+  background-color: @base08;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#clock {
+  color: #fff;
+  margin: 4px 2px;
+  padding: 0 6px;
+  background-color: @base01;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#temperature {
+  margin: 4px 2px;
+  padding: 0 6px;
+  background-color: @base09;
+  border-radius: 4px;
+  min-width: 20px;
+}
+
+#pulseaudio.muted {
+  color: @base0F;
+}
+
+#pulseaudio.bluetooth {
+  color: @base0C;
+}
+
+#temperature.critical {
+  color: @base0F;
+}
+
+
