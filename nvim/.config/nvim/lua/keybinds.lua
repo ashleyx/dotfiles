@@ -4,6 +4,8 @@ local map = vim.keymap.set
 -- Personal --
 
 map({'n','v','i'},'<C-t>', [[<esc>:tabnew<CR>]], {noremap = true, silent = true})
+map({'n','v','i'},'<C-s>', [[<esc>:w<CR>]], {noremap = true, silent = true})
+map({'n','v','i'},'<C-w>', [[<esc>:bd<CR>]], {noremap = true, silent = true})
 -- Keep selection after visual mode indent
 map('v','>', [[>gv^]], {noremap = true, silent = true})
 map('v','<', [[<gv^]], {noremap = true, silent = true})
