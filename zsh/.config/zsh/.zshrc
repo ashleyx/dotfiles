@@ -2,10 +2,17 @@
 
 source $ZDOTDIR/.tmux-setup.sh
 
-if [ ! -v TMUX ] && [ "$TERM" = "alacritty" ] ; then
-	tmux attach -t Local
-elif [ ! -v TMUX ] && [ "$TERM" != "alacritty" ] ; then
-	tmux attach -t Performance
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ] && [ ! -v TMUX ]
+then
+	sway_id=$(swaymsg -t get_workspaces | jq '.[] | select(.focused==true) | .num')
+	if [ "$sway_id" = "2" ]
+	then
+		tmux attach -t Local
+	elif [ "$sway_id" = "10" ]
+	then
+		tmux attach -t Performance
+	fi
 fi
 
 
