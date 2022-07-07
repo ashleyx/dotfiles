@@ -19,6 +19,10 @@ configs = {
 		require("telescope").load_extension "file_browser"
 	end,
 	
+	colorizer = function()
+		require('colorizer').setup()
+	end,
+
 	template = function()
 		-----------------
 	end,

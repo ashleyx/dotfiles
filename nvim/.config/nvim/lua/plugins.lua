@@ -50,6 +50,7 @@ return require('packer').startup(function(use)
 		config = function()
 			require('dash')
 		end}
+	use 'norcalli/nvim-colorizer.lua'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all useins
