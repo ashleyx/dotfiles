@@ -1,0 +1,58 @@
+@import "/home/ashleyx/.config/colors.css";
+
+* {
+    font-family:  'Lato', 'Droid Sans Mono Nerd Font', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+#window {
+    margin: 0px;
+    border: 2px solid;
+    border-color: #dfd;
+    border-radius: 25px;
+    background-color: @base01;
+    color:  @base03;
+}
+
+#input {
+    margin: 15px;
+    background-color: rgb(112, 122, 137);
+    color: rgb(37, 38, 51);
+    border-radius: 25px;
+    border: 2px solid rgb(52, 64, 76);
+}
+
+#scroll {
+    margin-bottom: 15px;
+}
+
+#entry {
+    margin: 0px 15px;
+}
+
+#entry:selected {
+    background-color: @base02;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+}
+
+#entry > box {
+    margin-left: 16px;
+}
+
+#entry image {
+    padding-right: 10px;
+}
+
+#colors {
+    color: rgb(37, 38, 51);
+    color: rgb(52, 64, 76);
+    color: rgb(76, 90, 107);
+    color: rgb(112, 122, 137);
+    color: rgb(235, 77, 129);
+    color: rgb(245, 98, 36);
+}
+
