@@ -11,11 +11,11 @@ map('v','>', [[>gv^]], {noremap = true, silent = true})
 map('v','<', [[<gv^]], {noremap = true, silent = true})
 
 -- Telescope --
-map('n', '<Leader>ff', [[:Telescope find_files<CR>]], {noremap = true})
-map('n', '<Leader>FF', [[<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>"]],{noremap = true})
-map('n', '<Leader>fg', [[:Telescope live_grep<CR>]], {noremap = true})
-map('n', '<Leader>FG', [[<cmd>lua require'telescope.builtin'.live_grep({ vimgrep_arguments ={'rg','--with-filename','--line-number','--column','--smart-case','--hidden'}})<cr>]], {noremap = true})
-map('n', '<Leader>fh', [[:Telescope help_tags<CR>]], {noremap = true})
+map('n', '<Leader>ff', [[:Telescope find_files prompt_prefix=🔍-><CR>]], {noremap = true})
+map('n', '<Leader>FF', [[:Telescope find_files find_command=rg,--files,--iglob=!.git prompt_prefix=🔍-><CR>]],{noremap = true})
+map('n', '<Leader>fg', [[:Telescope live_grep prompt_prefix=🔍-><CR>]], {noremap = true})
+map('n', '<Leader>FG', [[:Telescope live_grep vimgrep_arguments=rg,--hidden,--iglob=!.git prompt_prefix=🔍-><CR>]], {noremap = true})
+map('n', '<Leader>fh', [[:Telescope help_tag prompt_prefix=🔍-><CR>]], {noremap = true})
 
 map('n', '<Leader>fb', [[:Telescope file_browser<CR>]], {noremap = true})
 
