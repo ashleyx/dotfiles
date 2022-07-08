@@ -12,7 +12,7 @@ map('v','<', [[<gv^]], {noremap = true, silent = true})
 
 -- Telescope --
 map('n', '<Leader>ff', [[:Telescope find_files prompt_prefix=🔍-><CR>]], {noremap = true})
-map('n', '<Leader>FF', [[:Telescope find_files find_command=rg,--files,--iglob=!.git prompt_prefix=🔍-><CR>]],{noremap = true})
+map('n', '<Leader>FF', [[:Telescope find_files find_command=rg,--files,--hidden,--iglob=!.git prompt_prefix=🔍-><CR>]],{noremap = true})
 map('n', '<Leader>fg', [[:Telescope live_grep prompt_prefix=🔍-><CR>]], {noremap = true})
 map('n', '<Leader>FG', [[:Telescope live_grep vimgrep_arguments=rg,--hidden,--iglob=!.git prompt_prefix=🔍-><CR>]], {noremap = true})
 map('n', '<Leader>fh', [[:Telescope help_tag prompt_prefix=🔍-><CR>]], {noremap = true})
