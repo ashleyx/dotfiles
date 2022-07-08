@@ -12,15 +12,11 @@ export EDITOR="$VISUAL"
 
 export LESSHISTFILE=-
 
-if [ "$XDG_SESSION_TYPE" = "wayland" ]
-then
-    export MOZ_ENABLE_WAYLAND=1
-fi
 
 
 # Kitty terminal  ---------------------------------------
+# kitty being weird with ssh the first time. who names terminal kitty ew
 alias s="kitty +kitten ssh"
-
 # Cleaner home dir ---------------------------------------
 #XDG Specification
 export XDG_DATA_HOME="$HOME"/.local/share
