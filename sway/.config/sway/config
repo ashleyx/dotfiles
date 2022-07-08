@@ -18,7 +18,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu killall wofi || kitty --class temp -e wofi | xargs swaymsg exec --
+set $menu killall wofi || wofi | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -216,7 +216,6 @@ input type:touchpad {
 
 gaps inner 15
 exec wl-paste -t text --watch clipman store --no-persist
-
 
 
 #

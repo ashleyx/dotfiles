@@ -5,7 +5,7 @@ width=20%
 lines=5
 
 prompt=
-show= run
+show= drun
 insensitive=true
 allow_images=true
 hide_scroll=true
