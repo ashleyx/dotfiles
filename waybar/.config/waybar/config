@@ -10,14 +10,16 @@
         "format": " {}"
     },
     "sway/workspaces": {
-		"format": "<span font='15'> {icon} </span>",
+		"format": "<span font='25'> {icon} </span>",
         "format-icons": {
             "1": "",
             "2": "",
             "3": "",
             "4": "ﱘ",
-            "5": "",
+			"5": "",
             "6": "",
+            "9": "",
+			"10": "",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -83,9 +85,9 @@
         "format-bluetooth": "{volume}% {icon} ",
         "format-muted": "",
         "format-icons": {
-            "headphone": "",
+            "headphone": "",
             "hands-free": "魯",
-            "headset": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "default": "<span font='17'></span>"
