@@ -64,13 +64,8 @@
     # Show how many messages are currently hidden (because of
     # notification_limit).
     indicate_hidden = yes
-
-    # The transparency of the window.  Range: [0; 100].
-    # This option will only work if a compositing window manager is
-    # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 0
-
     # Draw a line of "separator_height" pixel height between two
+	
     # notifications.
     # Set to 0 to disable.
     # If gap_size is greater than 0, this setting will be ignored.
@@ -310,7 +305,7 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#222222"
     foreground = "#888888"
-    timeout = 10
+    timeout = 4
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 

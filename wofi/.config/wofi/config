@@ -1,11 +1,11 @@
 term=kitty
 location=top
-yoffset=900
-width=20%
+yoffset=750
+width=25%
 lines=5
 
 prompt=
-show= drun
+show= drun,run
 insensitive=true
 allow_images=true
 hide_scroll=true

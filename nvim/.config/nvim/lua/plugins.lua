@@ -18,7 +18,7 @@ local custom_configs = require 'plug_config.setup' -- source of custom_configs f
  -- https://github.com/s1n7ax/nvim-terminal
  -- https://github.com/michaelb/sniprun
  -- https://github.com/tpope/vim-fugitive
- --
+ 
 
 
 return require('packer').startup(function(use)
@@ -50,8 +50,13 @@ return require('packer').startup(function(use)
 		config = function()
 			require('dash')
 		end}
-	use 'norcalli/nvim-colorizer.lua'
-
+	use {'norcalli/nvim-colorizer.lua', -- color highlighting for hex values
+		config= custom_configs['colorizer']}
+	use 'jiangmiao/auto-pairs' -- pair for quotes and brackets when typing 
+	use {'s1n7ax/nvim-terminal',
+		config = custom_configs['terminal']}
+	use 'jpalardy/vim-slime' --send code to terminal
+	
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all useins
   if packer_bootstrap then

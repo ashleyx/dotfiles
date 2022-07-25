@@ -15,8 +15,8 @@
             "1": "",
             "2": "",
             "3": "",
-            "4": "ﱘ",
-			"5": "",
+			"4": "",
+            "5": "ﱘ",
             "6": "",
             "9": "",
 			"10": "",
@@ -24,19 +24,21 @@
             "focused": "",
             "default": ""
         },
-		"persistent_workspaces": {
-			"1":[],
-			"2":[],
-			"3":[],
-			"4":[],
-		},
+		/*"persistent_workspaces": {*/
+			/*"1":[],*/
+			/*"2":[],*/
+			/*"3":[],*/
+			/*"4":[],*/
+			/*"10":[]*/
+		/*},*/
     },
     "sway/window": {
         "max-length": 80,
         "tooltip": false
     },
     "clock": {
-        "format": "{:%a  ·  %d.%m.%Y  ·  %H:%M}",
+        "format": "{:%a  ·  %d·%m·%Y  ·  %H:%M:%S}",
+		"interval" : 1,
         "tooltip": false
     },
     "cpu": {
@@ -69,13 +71,13 @@
 	"format": "{temperatureC}° "
     },
     "network": {
-        "format": "<span font='20'>{icon}</span>",
+        "format": "<span font='20'> {icon} </span>",
         "format-alt": "{ipaddr}/{cidr} {icon}",
         "format-alt-click": "click-right",
         "format-icons": {
             "wifi": [""],
             "ethernet": [""],
-            "disconnected": ["睊"]
+            "disconnected": [""]
         },
         "on-click": "kitty --class custom_nmui nmtui",
         "tooltip": false
@@ -93,7 +95,7 @@
             "default": "<span font='17'></span>"
         },
         "scroll-step": 1,
-        "on-click": "pavucontrol",
+        "on-click": "kitty --class custom_ncpamixer ncpamixer",
         "tooltip": false
     },
     "backlight": {

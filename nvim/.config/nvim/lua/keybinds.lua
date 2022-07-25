@@ -3,9 +3,12 @@ local map = vim.keymap.set
 
 -- Personal --
 
+map({'n'},'<Leader>p', [[<esc>:vsplit term://python %<CR>]], {noremap = true, silent = true})
+map({'n'},'<Leader>r', [[<esc>:vsplit term://Rscript %<CR>]], {noremap = true, silent = true})
+
 map({'n','v','i'},'<C-t>', [[<esc>:tabnew<CR>]], {noremap = true, silent = true})
 map({'n','v','i'},'<C-s>', [[<esc>:w<CR>]], {noremap = true, silent = true})
-map({'n','v','i'},'<C-w>', [[<esc>:bd<CR>]], {noremap = true, silent = true})
+map({'n','v','i'},'<C-q>', [[<esc>:bd<CR>]], {noremap = true, silent = true})
 -- Keep selection after visual mode indent
 map('v','>', [[>gv^]], {noremap = true, silent = true})
 map('v','<', [[<gv^]], {noremap = true, silent = true})
@@ -15,7 +18,7 @@ map('n', '<Leader>ff', [[:Telescope find_files prompt_prefix=🔍-><CR>]], {nore
 map('n', '<Leader>FF', [[:Telescope find_files find_command=rg,--files,--hidden,--iglob=!.git prompt_prefix=🔍-><CR>]],{noremap = true})
 map('n', '<Leader>fg', [[:Telescope live_grep prompt_prefix=🔍-><CR>]], {noremap = true})
 map('n', '<Leader>FG', [[:Telescope live_grep vimgrep_arguments=rg,--hidden,--iglob=!.git prompt_prefix=🔍-><CR>]], {noremap = true})
-map('n', '<Leader>fh', [[:Telescope help_tag prompt_prefix=🔍-><CR>]], {noremap = true})
+map('n', '<Leader>fh', [[:Telescope help_tags<CR>]], {noremap = true})
 
 map('n', '<Leader>fb', [[:Telescope file_browser<CR>]], {noremap = true})
 

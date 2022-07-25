@@ -66,7 +66,7 @@ output * bg /home/ashleyx/Pictures/Wallpapers/Good/mCEheiF.png fill scale 1.0
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -196,6 +196,24 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Function keys
+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86Search exec bemenu-run
+
+bindsym Print exec grimshot --notify save active
+bindsym Shift+Print exec grimshot --notify copy area
+
+bindsym $mod+F10  exec  kitty --class custom_ncpamixer_shortcut ncpamixer
+
 #
 # Status Bar:
 #
@@ -204,6 +222,8 @@ bindsym $mod+r mode "resize"
 bar {
 	swaybar_command waybar
 }
+
+# CUSTOM --------------------------------------------------------------------------
 
 
 default_border pixel 2
@@ -216,11 +236,34 @@ input type:touchpad {
 
 gaps inner 15
 exec wl-paste -t text --watch clipman store --no-persist
+exec dunst
+
+#
+# Autostart Windows:
+#
+
+
+# kitty flag --start-as fullscreen 
+exec --no-startup-id
+{
+swaymsg "workspace 10;exec kitty --class custom_monitor -e tmux a -t Performance"
+}
+exec --no-startup-id
+{
+swaymsg "workspace 4;exec kitty --class custom_server -e tmux a -t Server"
+}
+
+exec --no-startup-id
+{
+swaymsg "workspace 2;exec kitty --class custom_work"
+}
 
 
 #
 # Custom Window Rules:
 #
+
+
 for_window [app_id="custom_nmui"] {
 	floating enable
 	sticky enable
@@ -230,6 +273,21 @@ for_window [app_id="custom_nmui"] {
 	move left 25
 }
 
+
+for_window [app_id="custom_ncpamixer"] {
+	floating enable
+	sticky enable
+	resize set 900 400
+	move position cursor
+	move up 25
+	move left 25
+}
+for_window [app_id="custom_ncpamixer_shortcut"] {
+	floating enable
+	sticky enable
+	resize set 900 400
+	move position center
+}
 
 
 

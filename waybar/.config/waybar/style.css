@@ -9,13 +9,13 @@
 }
 
 #waybar {
-  color: #000;
-  background-color: transparent;
+  color: #fff;
+  background-color: @base00;
 }
 
 #workspaces {
-  margin: 0 4px;
-  background-color: @base03;
+  margin: 0 0px;
+  background-color: @base01;
 }
 
 #workspaces button {
@@ -37,7 +37,7 @@
 }
 
 #tray {
-  margin: 4px 16px 4px 4px;
+  margin: 0px 16px 0px 4px;
   border-radius: 4px;
   background-color: @base02;
 }
@@ -52,84 +52,83 @@
 }
 
 #mode{
-  margin: 4px 2px;
+  margin: 0px 2px;
   padding: 0 6px;
   background-color: @base02;
   border-radius: 4px;
-  min-width: 20px;
+  min-width: 22px;
 }
 
 #battery {
-  margin: 4px 2px;
-  padding: 0 6px;
-  background-color: @base09;
-  border-radius: 4px;
-  min-width: 20px;
-}
-
-#cpu {
-  margin: 4px 2px;
-  padding: 0 6px;
-  background-color: @base04;
-  border-radius: 4px;
-  min-width: 20px;
-}
-
-#memory {
-  margin: 4px 2px;
-  padding: 0 6px;
-  background-color: @base08;
-  border-radius: 4px;
-  min-width: 20px;
-}
-
-#network {
-  margin: 4px 2px;
-  padding: 0 6px;
-  background-color: @base08;
-  border-radius: 4px;
-  min-width: 20px;
-}
-
-#pulseaudio {
-  margin: 4px 2px;
-  padding: 0 6px;
-  background-color: @base04;
-  border-radius: 4px;
-  min-width: 20px;
-}
-
-#idle_inhibitor {
-  margin: 4px 2px;
+  margin: 0px 2px;
   padding: 0 6px;
   background-color: @base02;
   border-radius: 4px;
-  min-width: 20px;
+  min-width: 22px;
+}
+
+#cpu {
+  margin: 0px 2px;
+  padding: 0 6px;
+  background-color: @base02;
+  border-radius: 4px;
+  min-width: 22px;
+}
+
+#memory {
+  margin: 0px 2px;
+  padding: 0 6px;
+  background-color: @base02;
+  border-radius: 4px;
+  min-width: 22px;
+}
+
+#network {
+  margin: 0px 2px;
+  padding: 0 6px;
+  background-color: @base02;
+  border-radius: 4px;
+  min-width: 22px;
+}
+
+#pulseaudio {
+  margin: 0px 2px;
+  padding: 0 6px;
+  background-color: @base02;
+  border-radius: 4px;
+  min-width: 22px;
+}
+
+#idle_inhibitor {
+  margin: 0px 2px;
+  padding: 0 6px;
+  background-color: @base02;
+  border-radius: 4px;
+  min-width: 22px;
 }
 
 #backlight {
-  margin: 4px 2px;
+  margin: 0px 2px;
   padding: 0 6px;
-  background-color: @base08;
+  background-color: @base02;
   border-radius: 4px;
-  min-width: 20px;
+  min-width: 22px;
 }
 
 #clock {
-  color: #fff;
-  margin: 4px 2px;
-  padding: 0 6px;
+  margin: 0px 1px;
+  padding: 2px 6px;
   background-color: @base01;
   border-radius: 4px;
-  min-width: 20px;
+  min-width: 22px;
 }
 
 #temperature {
-  margin: 4px 2px;
+  margin: 0px 2px;
   padding: 0 6px;
-  background-color: @base09;
+  background-color: @base02;
   border-radius: 4px;
-  min-width: 20px;
+  min-width: 22px;
 }
 
 #pulseaudio.muted {
@@ -137,7 +136,7 @@
 }
 
 #pulseaudio.bluetooth {
-  color: @base0C;
+  color: @base0E;
 }
 
 #temperature.critical {
