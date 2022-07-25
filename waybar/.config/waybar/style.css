@@ -10,7 +10,7 @@
 
 #waybar {
   color: #fff;
-  background-color: @base00;
+  background-color: transparent;
 }
 
 #workspaces {
@@ -39,7 +39,7 @@
 #tray {
   margin: 0px 16px 0px 4px;
   border-radius: 4px;
-  background-color: @base02;
+  background-color: @base03;
 }
 
 #tray * {
@@ -70,7 +70,7 @@
 #cpu {
   margin: 0px 2px;
   padding: 0 6px;
-  background-color: @base02;
+  background-color: @base03;
   border-radius: 4px;
   min-width: 22px;
 }
@@ -78,7 +78,7 @@
 #memory {
   margin: 0px 2px;
   padding: 0 6px;
-  background-color: @base02;
+  background-color: @base03;
   border-radius: 4px;
   min-width: 22px;
 }
@@ -126,7 +126,7 @@
 #temperature {
   margin: 0px 2px;
   padding: 0 6px;
-  background-color: @base02;
+  background-color: @base03;
   border-radius: 4px;
   min-width: 22px;
 }

@@ -41,3 +41,7 @@ data.location=/home/ashleyx/.local/share/.task
 
 verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
 
+news.version=2.6.0
+context.assessment.read=project:epitomeassessment
+context.assessment.write=project:epitomeassessment
+context=assessment

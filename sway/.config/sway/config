@@ -23,7 +23,8 @@ set $menu killall wofi || wofi | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg /home/ashleyx/Pictures/Wallpapers/Good/mCEheiF.png fill scale 1.0 
+output * scale 1
+exec mpvpaper -o "no-audio --loop-playlist shuffle --speed=0.6" eDP-1 ~/Pictures/Wallpapers/videos/
 #
 # Example configuration:
 #
@@ -159,6 +160,9 @@ output * bg /home/ashleyx/Pictures/Wallpapers/Good/mCEheiF.png fill scale 1.0
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+# COLOR PICKER
+bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy 
+
 #
 # Scratchpad:
 #
@@ -242,21 +246,6 @@ exec dunst
 # Autostart Windows:
 #
 
-
-# kitty flag --start-as fullscreen 
-exec --no-startup-id
-{
-swaymsg "workspace 10;exec kitty --class custom_monitor -e tmux a -t Performance"
-}
-exec --no-startup-id
-{
-swaymsg "workspace 4;exec kitty --class custom_server -e tmux a -t Server"
-}
-
-exec --no-startup-id
-{
-swaymsg "workspace 2;exec kitty --class custom_work"
-}
 
 
 #
