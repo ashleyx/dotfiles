@@ -1,5 +1,9 @@
 # dotfiles
 
+Place repo in $HOME and use `stow folder-name` to automatically symlink in correct location. 
+
+
+
 shell: zsh
 
 terminal emulators : kitty(current) alacritty(old) (both are gpu accelerated,kitty supports ligratures with Fira Code font)
