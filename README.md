@@ -1,8 +1,13 @@
 # dotfiles
 
-Place repo in $HOME and use `stow folder-name` to automatically symlink in correct location. 
+Place repo in $HOME and use 
+```
+cd ~/dotfiles
+stow folder-name
+```
+to automatically symlink in correct location. 
 
-
+##
 
 shell: zsh
 
