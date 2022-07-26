@@ -1,20 +1,33 @@
 # dotfiles
 
+Place repo in $HOME and use 
+```
+cd ~/dotfiles
+stow folder-name
+```
+to automatically symlink in correct location. 
 
-#### TERMINAL EMULATOR: Alacritty
+##
+
+shell: zsh
+
+terminal emulators : kitty(current) alacritty(old) (both are gpu accelerated,kitty supports ligratures with Fira Code font)
+
+clean_home: python script that hijacks terminal python session to avoid history file on home
+
+colors: central location to control theming
+
+task : taskwarrior config for todo management
 
 
-#### SHELL : zsh
-add: export ZDOTDIR="$HOME"/.config/zsh
-to: /etc/zsh/zshenv
+## WAYLAND THINGS
 
+sway: tiling window manager
 
+dunst: notification manager for wayland wl-roots
 
-zsh-autocomple https://github.com/marlonrichert/zsh-autocomplete
+wofi: Krunner/dmenu alternative 
 
-powerlvl10k theme: https://github.com/romkatv/powerlevel10k
+waybar: replacement for swaybar
 
-#### EDITOR : nvim/neovim
-
-vim-plug https://github.com/junegunn/vim-plug
-
+others: mpvpaper-git(video wallpaper), grimshot(screenshot), clipman(clipboard), ncpamixer(volume mixer tui) 
