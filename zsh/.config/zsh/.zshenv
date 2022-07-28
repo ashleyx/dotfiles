@@ -32,7 +32,7 @@ export XDG_SCREENSHOTS_DIR="$HOME"/Pictures/Screenshots
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
+export PYTHONSTARTUP="${XDG_CONFIG_HOME}"/python/pythonrc
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 
 
