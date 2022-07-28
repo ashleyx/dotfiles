@@ -3,9 +3,8 @@
 * {
   transition: none;
   box-shadow: none;
-  font-size: 23;
+  font-size: 20;
   border-radius: 3px;
-  font-family: "Nerd Fonts";
 }
 
 #waybar {
@@ -132,15 +131,15 @@
 }
 
 #pulseaudio.muted {
-  color: @base0F;
+  color: @base00;
 }
 
 #pulseaudio.bluetooth {
-  color: @base0E;
+  color: @base00;
 }
 
 #temperature.critical {
-  color: @base0F;
+  color: @base00;
 }
 
 

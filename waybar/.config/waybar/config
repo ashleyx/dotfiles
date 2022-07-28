@@ -14,8 +14,8 @@
         "format-icons": {
             "1": "",
             "2": "",
-            "3": "",
-			"4": "",
+			"3": "",
+            "4": "",
             "5": "ﱘ",
             "6": "",
             "9": "",
@@ -95,7 +95,7 @@
             "default": "<span font='17'></span>"
         },
         "scroll-step": 1,
-        "on-click": "kitty --class custom_ncpamixer ncpamixer",
+		"on-click": "kitty --class custom_ncpamixer ncpamixer",
         "tooltip": false
     },
     "backlight": {

@@ -15,7 +15,7 @@ then
 	elif [ "$sway_id" = "10" ] && [ "$monitor_attached" = "0" ]
 	then
 		tmux attach -t Performance
-	elif [ "$sway_id" = "4" ] && [ "$server_attached" = "0" ]
+	elif [ "$sway_id" = "3" ] && [ "$server_attached" = "0" ]
 	then
 		tmux attach -t Server
 	fi

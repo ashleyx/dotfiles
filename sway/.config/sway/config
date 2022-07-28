@@ -200,6 +200,11 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+
+
+# CUSTOM --------------------------------------------------------------------------
+
+
 # Function keys
 
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -211,13 +216,13 @@ bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86Search exec bemenu-run
 
 bindsym Print exec grimshot --notify save active
 bindsym Shift+Print exec grimshot --notify copy area
 
 bindsym $mod+F10  exec  kitty --class custom_ncpamixer_shortcut ncpamixer
 
+bindsym $mod+Shift+Return exec kitty --class temp_terminal
 #
 # Status Bar:
 #
@@ -227,7 +232,6 @@ bar {
 	swaybar_command waybar
 }
 
-# CUSTOM --------------------------------------------------------------------------
 
 
 default_border pixel 2
@@ -238,7 +242,7 @@ input type:touchpad {
     natural_scroll disabled
 }
 
-gaps inner 15
+gaps inner 10
 exec wl-paste -t text --watch clipman store --no-persist
 exec dunst
 
@@ -252,6 +256,14 @@ exec dunst
 # Custom Window Rules:
 #
 
+for_window [app_id="temp_terminal"] {
+	floating enable
+	sticky enable
+	resize set 800 500
+	move position center
+	move up 25
+	move left 25
+}
 
 for_window [app_id="custom_nmui"] {
 	floating enable
@@ -279,6 +291,5 @@ for_window [app_id="custom_ncpamixer_shortcut"] {
 }
 
 
-
-include @sysconfdir@/sway/config.d/*
+#include @sysconfdir@/sway/config.d/*
 
