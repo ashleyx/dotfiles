@@ -23,8 +23,10 @@ set $menu killall wofi || wofi | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * scale 1
-exec mpvpaper -o "no-audio --loop-playlist shuffle --speed=0.6" eDP-1 ~/Pictures/Wallpapers/videos/
+output * bg /home/ashleyx/Pictures/Wallpapers/Good/Txpfu6f.jpeg fill scale 1.0
+
+#output * scale 1
+#exec mpvpaper -o "no-audio --loop-playlist shuffle --speed=0.6" eDP-1 ~/Pictures/Wallpapers/videos/
 #
 # Example configuration:
 #
@@ -258,7 +260,6 @@ exec dunst
 
 for_window [app_id="temp_terminal"] {
 	floating enable
-	sticky enable
 	resize set 800 500
 	move position center
 	move up 25
@@ -290,6 +291,12 @@ for_window [app_id="custom_ncpamixer_shortcut"] {
 	move position center
 }
 
+#turning off laptop keyboard backlight
+exec asusctl -k off
+
+#this solves slow start up of some apps
+# but it causes waybar to delay 
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 #include @sysconfdir@/sway/config.d/*
 

@@ -2,26 +2,20 @@
 
 local o = vim.opt
 local g = vim.g
-local colorscheme = "tokyonight"
-
---  theme config
-if ( colorscheme == "tokyonight" ) then 
-	g.tokyonight_style = "night"
-	g.tokyonight_italic_functions = true
-	g.tokyonight_transparent = true
-	g.tokyonight_sidebars = { "qf", "vista_kind", "packer" }
-	-- Load the colorscheme
-	vim.cmd[[colorscheme tokyonight]]
-end
-
 
 -- GLOBAL 
 
 g.mapleader = ' '
 
  -- vimslime
+local file= io.popen([[tmux display-message -p '#{window_index}']])
+local window_num = file:read()
+file:close()
+window_num = ":"..window_num..".2"
+
 g.slime_target = "tmux"
-g.slime_default_config = {socket_name="default", target_pane="Local:Code.2"}
+--g.slime_default_config = {socket_name="default", target_pane="Local:Code.2"}
+g.slime_default_config = {socket_name="default", target_pane= window_num }
 g.slime_dont_ask_default = 1
 g.slime_paste_file = "$HOME/.cache/.slime_paste"
 -- NOT GLOBAL ? 
@@ -44,7 +38,6 @@ o.scrolloff = 3
 o.encoding = 'UTF-8'
 o.clipboard = 'unnamedplus'
 o.listchars = {eol = '↲', tab = '▸-', trail = '·', space = '␣'}
-o.termguicolors = true
 o.hidden = true
 o.colorcolumn = "80"
 

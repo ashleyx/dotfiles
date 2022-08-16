@@ -17,7 +17,9 @@ configs = {
 	lualine = function()
 		require('lualine').setup{
 		options = {
-			theme = 'tokyonight'}}
+			theme = 'catppuccin'
+			--theme = 'palenight'
+		}}
 	end,
 
 	treesitter = function()
@@ -33,14 +35,22 @@ configs = {
 	end,
 
 	bufferline = function()
-		require("bufferline").setup{}
+		require("bufferline").setup{
+			options = {
+				mode = "tabs",
+				separator_style = "thick",
+				tab_size = 25,
+			},
+	}
 	end,
 
 	indentline = function()
 		require("indent_blankline").setup {
 			space_char_blankline = " ",
 			show_current_context = true,
-			show_current_context_start = true}
+			show_current_context_start = true,
+			filetype_exclude = { "dashboard" },
+		}
 	end,
 
 

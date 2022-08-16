@@ -1,6 +1,7 @@
 local home = os.getenv('HOME')
 local db = require('dashboard')
-db.preview_command = 'cat'
+--db.custom_header = {}
+db.preview_command = 'cat | cat '
 db.preview_file_path = home .. '/.config/nvim/lua/dash/image.txt'
 db.preview_file_height = 18
 db.preview_file_width = 100
@@ -30,4 +31,3 @@ db.custom_center = {
 	action = 'Telescope find_files hidden=true',
 	shortcut = '<Space> f d'},
 	}
-

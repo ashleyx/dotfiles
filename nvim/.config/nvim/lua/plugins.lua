@@ -24,7 +24,10 @@ local custom_configs = require 'plug_config.setup' -- source of custom_configs f
 return require('packer').startup(function(use)
 
 	use 'wbthomason/packer.nvim'
-	use 'folke/tokyonight.nvim' -- theme
+	-- themes
+	--use 'folke/tokyonight.nvim'
+	use { "catppuccin/nvim", as = "catppuccin" }
+	--
 	use { 'nvim-lualine/lualine.nvim', -- statusline
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
 		config = custom_configs['lualine'] }
