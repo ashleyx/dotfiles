@@ -26,7 +26,7 @@ set $menu killall wofi || wofi | xargs swaymsg exec --
 output * bg /home/ashleyx/Pictures/Wallpapers/Good/Txpfu6f.jpeg fill scale 1.0
 
 #output * scale 1
-#exec mpvpaper -o "no-audio --loop-playlist shuffle --speed=0.6" eDP-1 ~/Pictures/Wallpapers/videos/
+#exec mpvpaper -o "no-audio --loop-playlist shuffle --speed=1.6" eDP-1 ~/Pictures/Wallpapers/videos/
 #
 # Example configuration:
 #
@@ -293,6 +293,11 @@ for_window [app_id="custom_ncpamixer_shortcut"] {
 
 #turning off laptop keyboard backlight
 exec asusctl -k off
+
+#requires swayidle package for sleep functionality
+exec swayidle -w \
+	timeout 1805 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"'
 
 #this solves slow start up of some apps
 # but it causes waybar to delay 

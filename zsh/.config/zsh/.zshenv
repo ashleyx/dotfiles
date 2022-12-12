@@ -1,8 +1,10 @@
 
 # Add exports to /etc/bash.bashrc is using bash as default shell(recommended) to ensure its used for non interactive shells 
 
-ZDOTDIR=$HOME/.config/zsh
+export ZDOTDIR=$HOME/.config/zsh
 
+
+export PATH=/home/ashleyx/.local/bin:$PATH
 # EXPORTS -----------------------------------------------------------
 
 setopt globdots
