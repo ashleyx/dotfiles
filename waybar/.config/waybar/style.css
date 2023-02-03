@@ -18,8 +18,9 @@
 }
 
 #workspaces button {
+  color: #acc;
   margin: 0px 0;
-  padding: 0 4px;
+  padding: 0 0px;
 }
 
 #workspaces button.visible {
