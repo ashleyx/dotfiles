@@ -2,12 +2,12 @@
 
 #@weekly rm -rf /home/ashleyx/Downloads/*
 #@daily sh /home/ashleyx/dotfiles/backup_script.sh
-if findmnt --target /mnt/external --source /dev/mapper/externaldrive >/dev/null
+if findmnt --target /mnt/externaldrive --source /dev/mapper/externaldrive >/dev/null
 then
-	rsync -r /home/ashleyx/git /mnt/external/backups/
-	rsync -r /home/ashleyx/dotfiles /mnt/external/backups/
-	rsync -r /home/ashleyx/work /mnt/external/backups/
-	rsync -r /home/ashleyx/Pictures /mnt/external/backups/
-	rsync -r /home/ashleyx/Documents /mnt/external/backups/
-	rsync -r /home/ashleyx/Videos /mnt/external/backups/
+	rsync -rv /home/ashleyx/git /mnt/externaldrive/backups/
+	rsync -rv /home/ashleyx/dotfiles /mnt/externaldrive/backups/
+	rsync -rv /home/ashleyx/work /mnt/externaldrive/backups/
+	rsync -rv /home/ashleyx/Pictures /mnt/externaldrive/backups/
+	rsync -rv /home/ashleyx/Documents /mnt/externaldrive/backups/
+	rsync -rv /home/ashleyx/Videos /mnt/externaldrive/backups/
 fi
