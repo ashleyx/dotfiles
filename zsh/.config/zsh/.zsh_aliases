@@ -2,8 +2,8 @@
 # ALIASES -----------------------------------------------------------
 
 # exa
-alias ls='exa --long --icons --group-directories-first'
-alias la='exa --long --icons --group-directories-first -a'
+alias ls='eza --long --icons --group-directories-first'
+alias la='eza --long --icons --group-directories-first -a'
 # nvim
 alias v='nvim'
 alias vi='nvim'
