@@ -308,6 +308,10 @@ for_window [app_id="custom_ncpamixer_shortcut"] {
 	move position center
 }
 
+for_window [app_id="codium-url-handler"] {
+	opacity 0.94
+}
+
 #turning off laptop keyboard backlight
 exec asusctl -k off
 
@@ -318,7 +322,7 @@ exec swayidle -w \
 
 #this solves slow start up of some apps
 # but it causes waybar to delay 
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+#exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 #include @sysconfdir@/sway/config.d/*
 

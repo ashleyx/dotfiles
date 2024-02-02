@@ -6,4 +6,4 @@ EDITOR=nvim
 VISUAL=nvim
 XDG_SCREENSHOTS_DIR=/home/ashleyx/Pictures/Screenshots
 #LD_LIBRARY_PATH=/usr/lib/jvm/default-java/jre/lib/amd64/server/
-
+PYTHONDONTWRITEBYTECODE=1
