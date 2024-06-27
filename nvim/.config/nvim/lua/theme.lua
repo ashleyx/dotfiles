@@ -1,7 +1,7 @@
 
 local o = vim.opt
 local g = vim.g
-local colorscheme = "catppuccin"
+local colorscheme = "lunaperche"
 
 --  theme config
 
@@ -79,7 +79,6 @@ else
 	vim.cmd('colorscheme '..colorscheme)
 	vim.cmd[[
 	hi Normal guibg=none ctermbg=none
-	hi LineNr guibg=none ctermbg=none
 	hi Folded guibg=none ctermbg=none
 	hi NonText guibg=none ctermbg=none
 	hi SpecialKey guibg=none ctermbg=none

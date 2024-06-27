@@ -41,24 +41,17 @@ return require('packer').startup(function(use)
 	use {'nvim-telescope/telescope.nvim',-- filename and content search
 		requires = 'nvim-lua/plenary.nvim'}
 	use { "nvim-telescope/telescope-file-browser.nvim" } -- telescope file browser extension
-	use {'akinsho/bufferline.nvim', tag = "v2.*", -- prettier bufferline and movement
-		requires = 'kyazdani42/nvim-web-devicons',
-		config = custom_configs["bufferline"] }
+	use {'akinsho/bufferline.nvim', tag = "*", -- prettier bufferline and movement
+		requires = 'nvim-tree/nvim-web-devicons',
+		config = custom_configs['bufferline']}
 	use {'kyazdani42/nvim-tree.lua', -- tree style file system movement
 		requires = {'kyazdani42/nvim-web-devicons', opt = true},
 		tag = 'nightly'}
 	use {"lukas-reineke/indent-blankline.nvim", -- horizontal indent guide
 		config = custom_configs['indentline']}
-	use {'glepnir/dashboard-nvim', -- dashboard on vim startup 
-		config = function()
-			require('dash')
-		end}
 	use {'norcalli/nvim-colorizer.lua', -- color highlighting for hex values
 		config= custom_configs['colorizer']}
 	use 'jiangmiao/auto-pairs' -- pair for quotes and brackets when typing 
-	use {'s1n7ax/nvim-terminal',
-		config = custom_configs['terminal']}
-	use 'jpalardy/vim-slime' --send code to terminal
 	
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all useins

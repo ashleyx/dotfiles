@@ -2,8 +2,23 @@
 
 source $ZDOTDIR/.tmux-setup.sh
 
-
-if [ "$XDG_SESSION_TYPE" = "wayland" ] && [ ! -v TMUX ]
+if [ -n ${HYPRLAND_INSTANCE_SIGNATURE+x} ] && [ ! -v TMUX ]
+then
+	hypr_id=$(hyprctl activewindow -j | jq '.workspace.name')
+	local_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Local | awk '{print $2}')
+	monitor_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Performance | awk '{print $2}')
+	server_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Server | awk '{print $2}')
+	if [ $hypr_id = "\"2\"" ] && [ "$local_attached" = "0" ]
+	then
+		tmux attach -t Local
+	elif [ $hypr_id = "\"special:magic\"" ] && [ "$monitor_attached" = "0" ]
+	then
+		tmux attach -t Performance
+	elif [ $hypr_id = "\"3\"" ] && [ "$server_attached" = "0" ]
+	then
+		tmux attach -t Server
+	fi
+elif [ "$XDG_SESSION_TYPE" = "wayland" ] && [ ! -v TMUX ]
 then
 	sway_id=$(swaymsg -t get_workspaces | jq '.[] | select(.focused==true) | .num')
 	local_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Local | awk '{print $2}')

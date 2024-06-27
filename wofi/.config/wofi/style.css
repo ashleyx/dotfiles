@@ -1,50 +1,39 @@
-@import "/home/ashleyx/.config/colors.css";
-
-* {
-    font-family:  'Lato', 'Droid Sans Mono Nerd Font', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-}
-
-#window {
-    margin: 0px;
-    border: 5px solid;
-    border-color: @base00;
-    border-radius: 5px;
-    background-color: @base03;
-    color: #000;
+window {
+margin: 0px;
+border: 1px solid #7A8478;
+background-color: #1E2326;
 }
 
 #input {
-	font-size: 30;
-    margin: 0px;
-    background-color: @base02;
-    color: #fff;
-    border-radius: 10px;
-    border: 5px solid @base00;
+margin: 5px;
+border: none;
+color: #D3C6AA;
+background-color: #272E33;
+}
+
+#inner-box {
+margin: 5px;
+border: none;
+background-color: #1E2326;
+}
+
+#outer-box {
+margin: 5px;
+border: none;
+background-color: #1E2326;
 }
 
 #scroll {
-    margin-bottom: 15px;
+margin: 0px;
+border: none;
 }
 
-#entry {
-    margin: 0px 5px;
+#text {
+margin: 5px;
+border: none;
+color: #D3C6AA;
 }
 
 #entry:selected {
-    background-color: @base02;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-	padding-left: 20px
+background-color: #272E33;
 }
-
-#entry > box {
-    margin-left: 10px;
-}
-
-#entry image {
-    padding-right: 10px;
-}
-

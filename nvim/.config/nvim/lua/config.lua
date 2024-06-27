@@ -7,19 +7,7 @@ local g = vim.g
 
 g.mapleader = ' '
 
- -- vimslime
-local file= io.popen([[tmux display-message -p '#{window_index}']])
-local window_num = file:read()
-file:close()
-window_num = ":"..window_num..".2"
-
-g.slime_target = "tmux"
---g.slime_default_config = {socket_name="default", target_pane="Local:Code.2"}
-g.slime_default_config = {socket_name="default", target_pane= window_num }
-g.slime_dont_ask_default = 1
-g.slime_paste_file = "$HOME/.cache/.slime_paste"
 -- NOT GLOBAL ? 
-
 o.number = true 
 o.relativenumber = true 
 o.autoindent = true 
