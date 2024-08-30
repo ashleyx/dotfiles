@@ -1,8 +1,8 @@
-sudo pacman -S nvim networkmanager tmux firefox zsh kitty waybar wofi dunst exa zoxide jq\
+sudo pacman -S nvim pipewire-pulse networkmanager tmux firefox zsh kitty waybar wofi dunst exa zoxide jq\
 	swaybg btop nvtop tumbler bluez bluez-utils ripgrep rsync cronie --noconfirm
 
 yay -S grimshot clipman nerd-fonts ttf-fira-code \ 
-	spotify ncpamixer-git bluetuith swaylock-effects --noconfirm 
+	spotify bluetuith swaylock-effects --noconfirm 
 yay -S xdg-desktop-portal-wlr-git bemenu-wayland 
 mkdir ~/installs
 git git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git ~/installs/zsh-autocomplete

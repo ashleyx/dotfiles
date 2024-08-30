@@ -27,6 +27,8 @@ anime_choices = {
         'clear' : f'asusctl anime gif -p {anime_folder}pikachu_running_mirrored.gif -s 0 -b 0',
         }
 
+external_uuid = "c6c79117-4bdf-4cd8-8dfb-3682a8cf0227"
+
 class Butler():
     
     wait_time = None
@@ -35,7 +37,20 @@ class Butler():
     status = None # True if charging
     proc = None #wallpaper process
     anime_proc = None #aime matrix process
+    ext_mounted = False
+    ext_connected = False
 
+    def external_disk_manager(self):
+        now_ext_mounted = os.path.ismount('/mnt/externaldrive')
+        mounted_disks = subprocess.check_output([f'lsblk -ln -o uuid'], shell=True).decode().split()
+        now_ext_connected = external_uuid in mounted_disks
+        if now_ext_mounted and now_ext_connected:
+            self.ext_mounted = self.ext_connected = True
+        elif not ( self.ext_mounted or self.ext_connected):
+            if now_ext_connected:
+                subprocess.run('sudo systemctl restart mnt-externaldrive.mount')
+        elif self.ext_mounted and not now_ext_connected:
+            self.ext_mounted = self.ext_connected = False
 
     def check_if_charging(self):
         with open('/sys/class/power_supply/BAT0/status','r') as f:
@@ -95,6 +110,7 @@ class Butler():
         self.wallpaper_manager()
         self.anime_manager()
         self.keyboard_light()
+        self.external_disk_manager()
         time.sleep(self.wait_time)
 
 
