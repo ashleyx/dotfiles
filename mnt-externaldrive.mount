@@ -1,0 +1,12 @@
+[Unit]
+Requires=unlock-data.service
+After=unlock-data.service
+
+[Mount]
+What=/dev/mapper/external
+Where=/mnt/externaldrive
+Type=btrfs
+Options=defaults,noauto,nofail,noatime,_netdev
+
+[Install]
+WantedBy=multi-user.target

@@ -9,6 +9,9 @@ alias v='nvim'
 alias vi='nvim'
 alias whatismyip="curl -sf ipinfo.io | jq -r .'ip'"
 
+alias poetryrun="poetry run python -m"
+export_env(){ export $(cat "$1"/*.env) }
+
 
 alias ua-drop-caches='sudo paccache -rk3; yay -Sc --aur --noconfirm'
 alias ua-update-all='export TMPFILE="$(mktemp)"; \

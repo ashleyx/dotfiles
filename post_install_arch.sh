@@ -1,5 +1,5 @@
 sudo pacman -S nvim pipewire-pulse networkmanager tmux firefox zsh kitty waybar wofi dunst exa zoxide jq\
-	swaybg btop nvtop tumbler bluez bluez-utils ripgrep rsync cronie --noconfirm
+	swaybg btop nvtop tumbler bluez bluez-utils ripgrep rsync cronie net-tools --noconfirm
 
 yay -S grimshot clipman nerd-fonts ttf-fira-code \ 
 	spotify bluetuith swaylock-effects --noconfirm 
