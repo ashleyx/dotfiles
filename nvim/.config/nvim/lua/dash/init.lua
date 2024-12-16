@@ -1,33 +1,91 @@
-local home = os.getenv('HOME')
-local db = require('dashboard')
---db.custom_header = {}
-db.preview_command = 'cat | cat '
-db.preview_file_path = home .. '/.config/nvim/lua/dash/image.txt'
-db.preview_file_height = 18
-db.preview_file_width = 100
-db.custom_center = {
-	{icon = '  ',
-	desc = 'Recently latest session     not setup   ',
-	shortcut = '<Space> s l',
-	action ='SessionLoad'},
-	{icon = '  ',
-	desc = 'Recently opened files   not setup       ',
-	action =  'DashboardFindHistory',
-	shortcut = '<Space> h h'},
-	{icon = '  ',
-	desc = 'Find  File                              ',
-	action = 'Telescope find_files find_command=rg,--hidden,--files',
-	shortcut = '<Space> f f'},
-	{icon = '  ',
-	desc ='File Browser                            ',
-	action =  'Telescope file_browser',
-	shortcut = '<Space> f b'},
-	{icon = '  ',
-	desc = 'Find  word                              ',
-	action = 'Telescope live_grep',
-	shortcut = '<Space> f g'},
-	{icon = '  ',
-	desc = 'Open Personal dotfiles     broken       ',
-	action = 'Telescope find_files hidden=true',
-	shortcut = '<Space> f d'},
-	}
+
+local header_img = {
+		[[]],
+		[[]],
+		[[]],
+		[[]],
+		[[]],
+        [[   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ]],
+        [[    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ]],
+        [[          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄     ]],
+        [[           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ]],
+        [[          ⢠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ]],
+        [[   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘  ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ]],
+        [[  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ]],
+        [[ ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ]],
+        [[ ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ ]],
+        [[      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ]],
+        [[       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ]],
+    }
+
+	vim.api.nvim_set_hl(0, 'StartupDashboard', { fg = "#a2ffaf"})
+
+
+local settings = {
+    -- every line should be same width without escaped \
+    header = {
+        type = "text",
+        oldfiles_directory = false,
+        align = "center",
+        fold_section = false,
+        title = "Header",
+        margin = 5,
+        content = header_img,
+		highlight = "StartupDashboard",
+		default_color = "#124f1f",
+        oldfiles_amount = 0,
+    },
+    -- name which will be displayed and command
+    body = {
+        type = "mapping",
+        oldfiles_directory = false,
+        align = "center",
+        fold_section = false,
+        title = "Basic Commands",
+        margin = 5,
+        content = {
+            { " Find File", "Telescope find_files", "<leader>ff" },
+            { "󰍉 Find Word", "Telescope live_grep", "<leader>lg" },
+            { " Recent Files", "Telescope oldfiles", "<leader>of" },
+            { " File Browser", "Telescope file_browser", "<leader>fb" },
+            { " Colorschemes", "Telescope colorscheme", "<leader>cs" },
+            { " New File", "lua require'startup'.new_file()", "<leader>nf" },
+        },
+        highlight = "String",
+        default_color = "",
+        oldfiles_amount = 0,
+    },
+    footer = {
+        type = "text",
+        oldfiles_directory = false,
+        align = "center",
+        fold_section = false,
+        title = "Footer",
+        margin = 5,
+        content = { vim.loop.cwd() },
+        highlight = "Number",
+        default_color = "",
+        oldfiles_amount = 0,
+    },
+
+    options = {
+        mapping_keys = true,
+        cursor_column = 0.5,
+        empty_lines_between_mappings = true,
+        disable_statuslines = true,
+        paddings = { 1, 3, 3, 0 },
+    },
+    mappings = {
+        execute_command = "<CR>",
+        open_file = "o",
+        open_file_split = "<c-o>",
+        open_section = "<TAB>",
+        open_help = "?",
+    },
+    colors = {
+        background = "#1f2227",
+        folded_section = "#56b6c2",
+    },
+    parts = { "header", "body", "footer" },
+}
+return settings

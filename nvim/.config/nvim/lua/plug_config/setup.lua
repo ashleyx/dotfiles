@@ -51,6 +51,12 @@ configs = {
 		require 'colorizer'.setup()
 	end,
 
+	--dashboard = function()
+		--require"startup".setup({
+			--theme="dashboard",
+			--header = dashboard_header})
+	--end,
+
 	template = function()
 		print('insert code here')
 	end,

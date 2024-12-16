@@ -3,17 +3,17 @@
 
 configs = {
 
-	nvimtree = function()
-		require("nvim-tree").setup{  
-			sort_by = "case_sensitive",
-			view = {
-				adaptive_size = true,
-				mappings = {list = {
-					{ key = "<CR>", action = "tabnew" }}},
-				side = "right",
-		}
-	}
-	end,
+	--nvimtree = function()
+		--require("nvim-tree").setup{  
+			--sort_by = "case_sensitive",
+			--view = {
+				--adaptive_size = true,
+				--mappings = {list = {
+					--{ key = "<CR>", action = "tabnew" }}},
+				--side = "right",
+		--}
+	--}
+	--end,
 
 	filebrowser = function()
 		require("telescope").load_extension "file_browser"
