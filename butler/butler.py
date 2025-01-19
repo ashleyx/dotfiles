@@ -62,6 +62,12 @@ class Butler():
             self.wait_time = powered_wait
             return True
 
+    def power_profile_manager(self):
+        if self.status:
+            subprocess.run(['asusctl','profile','-P','Performance'])
+        else:
+            subprocess.run(args=['asusctl','profile','-P','Quiet'])
+
     def anime_manager(self):
         if self.status:
             connected = subprocess.check_output("iwctl station wlan0 show | grep State", shell=True)
