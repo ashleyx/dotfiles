@@ -6,6 +6,9 @@ local map = vim.keymap.set
 map({'n','v','i'},'<C-t>', [[<esc>:tabnew<CR>]], {noremap = true, silent = true})
 map({'n','v','i'},'<C-s>', [[<esc>:w<CR>]], {noremap = true, silent = true})
 map({'n','v','i'},'<C-q>', [[<esc>:bd<CR>]], {noremap = true, silent = true})
+
+map({'x'},'<Leader>p',[[\dP]],{noremap = true, silent = true})
+
 -- Keep selection after visual mode indent
 map('v','>', [[>gv^]], {noremap = true, silent = true})
 map('v','<', [[<gv^]], {noremap = true, silent = true})
@@ -28,11 +31,7 @@ map('n', 'b[', [[:BufferLineCyclePrev<CR>]], {noremap = true , silent = true})
 map('n', 'b}', [[:BufferLineMoveNext<CR>]], {noremap = true , silent = true})
 map('n', 'b{', [[:BufferLineMovePrev<CR>]], {noremap = true , silent = true})
 
--- NerdTree --
-
-map({'n','i','v'}, '<C-d>', [[<esc>:NvimTreeToggle %<CR>]] , {noremap = true , silent = true})
-map({'n','i','v'}, '<C-f>', [[<esc>:NvimTreeToggle<CR>]] , {noremap = true , silent = true})
-
 -- Tarbar --
 
 map({'n','i','v'}, '<F8>', [[<esc>:TagbarToggle<CR>]] , {noremap = true , silent = true})
+
