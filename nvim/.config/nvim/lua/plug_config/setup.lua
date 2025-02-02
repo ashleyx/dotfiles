@@ -5,8 +5,7 @@ local highlight = {
 
 configs = {
 
-	gitsigns = function()
-		require('gitsigns').setup{
+	gitsigns = {
 		 signs = {
 			add          = { text = '+' },
 			change       = { text = 'o' },
@@ -15,47 +14,22 @@ configs = {
 			changedelete = { text = '~' },
 			untracked    = { text = '┆' },
 			},
-		signcolumn = true}
-	end,
+		signcolumn = true},
 
-	lualine = function()
-		require('lualine').setup{
+	lualine = {
 		options = {
 			theme = 'iceberg_dark'
-		}}
-	end,
+		}},
 
-	treesitter = function()
-		require('nvim-treesitter.configs').setup{
+	treesitter ={
 			  ensure_installed = { "lua", "rust", "python", "dockerfile", "bash", "r" },
-			  sync_install = false,
 			  ignore_install = { "javascript" },
+			  auto_install = false,
 			  highlight = {
 				enable = true,
 				additional_vim_regex_highlighting = false,
-			  }
-			}
-	end,
-
-	indentline = function()
-		require("ibl").setup {
-			indent = { highlight = highlight}
-		}
-	end,
-
-	bufferline = function()
-		require("bufferline").setup{}
-	end,
-
-	colorizer = function()
-		require 'colorizer'.setup()
-	end,
-
-	--dashboard = function()
-		--require"startup".setup({
-			--theme="dashboard",
-			--header = dashboard_header})
-	--end,
+			  },
+			},
 
 	template = function()
 		print('insert code here')
