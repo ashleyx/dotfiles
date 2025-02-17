@@ -1,2 +1,4 @@
 */wlan_whitelist
 *packer_compiled.lua
+**/.DS_Store
+**/__pycache__/

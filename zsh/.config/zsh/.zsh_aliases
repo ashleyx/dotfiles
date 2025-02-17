@@ -8,6 +8,8 @@ alias la='eza --long --icons --group-directories-first -a'
 alias v='nvim'
 alias vi='nvim'
 alias whatismyip="curl -sf ipinfo.io | jq -r .'ip'"
+#zoxide
+alias cd='z'
 
 alias poetryrun="poetry run python -m"
 export_env(){ export $(cat "$1"/*.env) }

@@ -31,7 +31,7 @@ map('n', 'b[', [[:BufferLineCyclePrev<CR>]], {noremap = true , silent = true})
 map('n', 'b}', [[:BufferLineMoveNext<CR>]], {noremap = true , silent = true})
 map('n', 'b{', [[:BufferLineMovePrev<CR>]], {noremap = true , silent = true})
 
--- Tarbar --
+-- Comment Lines --
 
-map({'n','i','v'}, '<F8>', [[<esc>:TagbarToggle<CR>]] , {noremap = true , silent = true})
-
+map({'n'},'<Leader>c', [[gcc]], {remap = true, silent = true})
+map('v','<Leader>c', [[gc]], {remap = true, silent = true})

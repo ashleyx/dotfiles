@@ -35,12 +35,20 @@ require("lazy").setup({
 	  config = custom_configs['gitsigns'],
 	},
 	{'tpope/vim-surround'}, -- add chars like brackets or quotes to regions
-	{'nvim-treesitter/nvim-treesitter', -- better syntax highlighting
-		config = custom_configs['treesitter'],
-		lazy = false,
+	{
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function () 
+      local configs = require("nvim-treesitter.configs")
+
+      configs.setup({
+		  ensure_installed = { "lua", "rust", "python", "dockerfile", "bash", "r" },
+          sync_install = false,
+          highlight = { enable = true },
+          indent = { enable = true },  
+        })
+    end
 	},
-	{'preservim/tagbar'}, -- Tagbar for code navigation
-	{'scrooloose/nerdcommenter'}, -- leader c for commenting
 	{'nvim-telescope/telescope.nvim',-- filename and content search
 		dependencies = 'nvim-lua/plenary.nvim',
 		lazy = false
@@ -112,7 +120,8 @@ require("lazy").setup({
 	{
 	  "catppuccin/nvim",
 	  lazy = true,
-	  name = "catppuccin"
+	  name = "catppuccin",
+	  enabled = false,
 	  },
 
 	},

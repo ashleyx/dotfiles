@@ -27,18 +27,6 @@ fi
 exists=$(tmux list-sessions 2>/dev/null| grep $session3)
 if [ "$exists" = "" ]
 then
-	# B2B
 	tmux new-session -d -s $session3 -n 'Default'
-   # # B2B DEV 
-	#tmux send-keys -t $session3:B2B.1 'ssh epitome-dev-b2b-server' C-m
-	#tmux send-keys -t $session3:B2B.1 'cd epitome-parser' C-m
-	#tmux send-keys -t $session3:B2B.1 'docker-compose logs -f --tail=100' C-m
-	#tmux select-pane -t $session3:B2B.1 -T 'DEV'
-	## B2B PROD
-	#tmux split-window -h -t $session3
-	#tmux send-keys -t $session3:B2B.2 'ssh epitome-prod-b2b-server' C-m
-	#tmux send-keys -t $session3:B2B.2 'cd epitome-parser' C-m
-	#tmux send-keys -t $session3:B2B.2 'docker-compose logs -f --tail=100' C-m
-	#tmux select-pane -t $session3:B2B.2 -T 'PROD'
 	return
 fi

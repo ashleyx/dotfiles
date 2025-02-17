@@ -26,7 +26,7 @@ o.splitbelow = true
 o.splitright = true 
 o.scrolloff = 6
 o.encoding = 'UTF-8'
-o.clipboard = 'unnamedplus'
+o.clipboard="unnamedplus"
 o.listchars = {eol = '↲', tab = '▸-', trail = '·', space = '␣'}
 o.hidden = true
 o.colorcolumn = "80"

@@ -1,8 +1,24 @@
+source ~/installs/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # TMUX -----------------------------------------------------------
 
 source $ZDOTDIR/.tmux-setup.sh
-
-if [ -n ${HYPRLAND_INSTANCE_SIGNATURE+x} ] && [ ! -v TMUX ]
+if [ "$(uname)" = "Darwin" ]; then
+	aerospace_id=$(aerospace list-workspaces --focused)
+	local_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Local | awk '{print $2}')
+	monitor_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Performance | awk '{print $2}')
+	server_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Server | awk '{print $2}')
+	if [ $aerospace_id = "2" ] && [ "$local_attached" = "0" ]
+	then
+		tmux attach -t Local
+	elif [ $aerospace_id = "10" ] && [ "$monitor_attached" = "0" ]
+	then
+		tmux attach -t Performance
+	elif [ $aerospace_id = "3" ] && [ "$server_attached" = "0" ]
+	then
+		tmux attach -t Server
+	fi
+	# TODO aerospace list-workspaces --focused
+elif [ -n ${HYPRLAND_INSTANCE_SIGNATURE+x} ] && [ ! -v TMUX ]
 then
 	hypr_id=$(hyprctl activewindow -j | jq '.workspace.name')
 	local_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Local | awk '{print $2}')
@@ -59,13 +75,13 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 
-source ~/installs/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
 source ~/installs/powerlevel10k/powerlevel10k.zsh-theme
 
 source $ZDOTDIR/.zsh_aliases
-
-source $ZDOTDIR/.zoxide
+source <(fzf --zsh)
+eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+

@@ -1,5 +1,4 @@
 
-# Add exports to /etc/bash.bashrc is using bash as default shell(recommended) to ensure its used for non interactive shells 
 
 export ZDOTDIR=$HOME/.config/zsh
 
@@ -36,7 +35,5 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}"/python/pythonrc
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+#export PYTHONDONTWRITEBYTECODE=1
 
-
-export TASKRC="$XDG_CONFIG_HOME"/.taskrc 
-export TASKDATA="$XDG_DATA_HOME"/.task

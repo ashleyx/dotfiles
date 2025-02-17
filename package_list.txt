@@ -1,0 +1,8 @@
+zsh
+tmux
+zoxide
+eza
+git
+firefox
+ripgrep
+jq

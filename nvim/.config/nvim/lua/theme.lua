@@ -90,3 +90,4 @@ else
 end
 
 
+vim.api.nvim_set_hl(0, "HeaderColourGroup", { fg = "#000000",  bg = none })
