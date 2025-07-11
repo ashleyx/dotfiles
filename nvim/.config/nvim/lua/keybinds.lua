@@ -1,6 +1,10 @@
 
 local map = vim.keymap.set
 
+-- forbid leader shortcuts in v,i modes
+
+map({'n','v'}, '<Leader>', '<Nop>')
+
 -- Personal --
 
 map({'n','v','i'},'<C-t>', [[<esc>:tabnew<CR>]], {noremap = true, silent = true})

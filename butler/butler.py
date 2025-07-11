@@ -43,9 +43,7 @@ class Butler:
 
     def external_disk_manager(self):
         now_ext_mounted = os.path.ismount("/mnt/externaldrive")
-        mounted_disks = (
-            subprocess.check_output([f"lsblk -ln -o uuid"], shell=True).decode().split()
-        )
+        mounted_disks = subprocess.check_output(["lsblk -ln -o uuid"], shell=True).decode().split()
         now_ext_connected = external_uuid in mounted_disks
         if now_ext_mounted and now_ext_connected:
             self.ext_mounted = self.ext_connected = True
@@ -73,16 +71,12 @@ class Butler:
 
     def anime_manager(self):
         if self.status:
-            connected = subprocess.check_output(
-                "iwctl station wlan0 show | grep State", shell=True
-            )
+            connected = subprocess.check_output("iwctl station wlan0 show | grep State", shell=True)
             connected = connected.strip().decode().split(" ")[-1]
             if connected == "disconnected":
                 network = None
             else:
-                network = subprocess.check_output(
-                    "iwctl station wlan0 show | grep network", shell=True
-                )
+                network = subprocess.check_output("iwctl station wlan0 show | grep network", shell=True)
                 network = network.strip()[22:].decode()
             if network in wlan_whitelist or network is None:
                 command = random.choice(anime_choices.get("known"))
@@ -103,19 +97,13 @@ class Butler:
             if self.proc:
                 self.proc.terminate()
             self.proc = subprocess.Popen(
-                [
-                    f"mpvpaper -vs '*' -o \"--loop-playlist shuffle --no-audio\" {video_folder}"
-                ],
+                [f"mpvpaper -vs '*' -o \"--loop-playlist shuffle --no-audio\" {video_folder}"],
                 shell=True,
             )
             self.wallpaper_state = True
         elif not self.status:
-            file_choice = os.path.join(
-                wallpaper_folder, random.choice(wallpaper_choices)
-            )
-            new_proc = subprocess.Popen(
-                [f"swaybg -i {file_choice} -m fit -c \#000000 "], shell=True
-            )
+            file_choice = os.path.join(wallpaper_folder, random.choice(wallpaper_choices))
+            new_proc = subprocess.Popen([f"swaybg -i {file_choice} -m fit -c \#000000 "], shell=True)
             if self.proc:
                 self.proc.terminate()
             self.proc = new_proc

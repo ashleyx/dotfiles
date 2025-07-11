@@ -17,8 +17,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
- -- wishlist to add
- -- undotree 
+-- wishlist to add
+-- undotree 
+-- mini.surround
+-- nvim-cmp ?
  
 
 local custom_configs = require 'plug_config.setup' -- source of custom_configs for plugins
@@ -34,19 +36,18 @@ require("lazy").setup({
 	{'lewis6991/gitsigns.nvim', -- git diff signs on file
 	  config = custom_configs['gitsigns'],
 	},
-	{'tpope/vim-surround'}, -- add chars like brackets or quotes to regions
 	{
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function () 
-      local configs = require("nvim-treesitter.configs")
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function () 
+		local configs = require("nvim-treesitter.configs")
 
-      configs.setup({
-		  ensure_installed = { "lua", "rust", "python", "dockerfile", "bash", "r" },
-          sync_install = false,
-          highlight = { enable = true },
-          indent = { enable = true },  
-        })
+		configs.setup({
+			ensure_installed = { "lua", "rust", "python", "dockerfile", "bash", "r" },
+			sync_install = false,
+			highlight = { enable = true },
+			indent = { enable = true },  
+		})
     end
 	},
 	{'nvim-telescope/telescope.nvim',-- filename and content search
@@ -66,56 +67,24 @@ require("lazy").setup({
 	},
 	{'jiangmiao/auto-pairs'}, -- pair for quotes and brackets when typing 
 	{
-	  "startup-nvim/startup.nvim", name =  "dashboard", lazy= false,
-	  dependencies = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim"},
-	  config = function()
+		"startup-nvim/startup.nvim", name =  "dashboard", lazy= false,
+		dependencies = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim"},
+		config = function()
 		require"startup".setup(require("dash"))
-	  end		
+		end		
 	},
 	{"tpope/vim-fugitive"}, -- git commands
 	{
-	  "neovim/nvim-lspconfig",
-	  dependencies = {"williamboman/mason.nvim","williamboman/mason-lspconfig.nvim"},
-	  config = function()
-			require'lspconfig'.pylsp.setup{
-			  settings = {
-				pylsp = {
-				  plugins = {
-					pycodestyle = {
-					  ignore = {"E201","E202","E203","E251",
-						"E226","E231","E501"},
-					  maxLineLength = 100
-					}
-				  }
-				}
-			  }
-			}
-		end,
-	},
-	{
-		"williamboman/mason.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		opts = {
-		  ensure_installed = {
-			"rust_analyzer",
-			"python-lsp-server"
-		  },
+			ensure_installed = { "pylsp", "rust_analyzer" },
 		},
-		dependencies = {'simrat39/rust-tools.nvim',"neovim/nvim-lspconfig"}
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+			"neovim/nvim-lspconfig",
+		},
 	},
-	{ 
-		"williamboman/mason-lspconfig.nvim",
-		dependencies = {"williamboman/mason.nvim"},
-		config = function()
-			require("mason-lspconfig").setup_handlers{
-				function (server_name)
-					require("lspconfig")[server_name].setup({})
-				end,
-				["rust_analyzer"] = function()
-					require("rust-tools").setup()
-				end,
-			}
-		end
-	},
+	'simrat39/rust-tools.nvim',
 	--- THEMES
 	{
 	  "catppuccin/nvim",
@@ -135,6 +104,4 @@ require("lazy").setup({
 	  notify = false,
   }
 })
-
-
 
