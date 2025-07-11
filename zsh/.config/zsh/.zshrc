@@ -57,6 +57,7 @@ fi
         #source "$(rustc --print sysroot)"/share/zsh/site-functions/_cargo
 #fi
 
+# find /Users/ashleyx/git -name ".DS_Store" -depth -exec rm {} \;
 
 
 # POWERLVL10k -----------------------------------------------------------
@@ -78,10 +79,10 @@ bindkey -e
 source ~/installs/powerlevel10k/powerlevel10k.zsh-theme
 
 source $ZDOTDIR/.zsh_aliases
+source $ZDOTDIR/.zshenv
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
 

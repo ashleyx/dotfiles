@@ -2,8 +2,11 @@
 
 export ZDOTDIR=$HOME/.config/zsh
 
-
-export PATH=/home/ashleyx/.local/bin:$PATH
+if [ "$(uname)" = "Darwin" ]; then
+	export PATH=/Users/ashleyx/.local/bin:$PATH
+elif [ "$XDG_SESSION_TYPE" = "wayland" ];then
+	export PATH=/home/ashleyx/.local/bin:$PATH
+fi
 # EXPORTS -----------------------------------------------------------
 
 setopt globdots
@@ -14,6 +17,7 @@ export LANG=en_IN.UTF-8
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
+export LOCAL="TRUE"
 export LESSHISTFILE=-
 
 #WAYLAND 
@@ -33,7 +37,8 @@ export XDG_SCREENSHOTS_DIR="$HOME"/Pictures/Screenshots
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-export PYTHONSTARTUP="${XDG_CONFIG_HOME}"/python/pythonrc
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
-#export PYTHONDONTWRITEBYTECODE=1
-
+# python bullshit
+export PYTHONDONTWRITEBYTECODE=1
+export PYTHONSTARTUP="${XDG_CONFIG_HOME}"/python/pythonrc
+export PYTHONUNBUFFERED=1

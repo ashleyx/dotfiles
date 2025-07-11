@@ -18,7 +18,7 @@ vim.api.nvim_create_augroup("AutoFormat", {})
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*.py",
   group = "AutoFormat",
-  callback = function () vim.cmd(":silent !black %") end,
+  callback = function () vim.cmd(":silent !black % -l 120") end,
 })
 
 -- stolen from https://dev.to/voyeg3r/my-ever-growing-neovim-init-lua-h0p

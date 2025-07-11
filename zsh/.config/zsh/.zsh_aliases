@@ -10,10 +10,17 @@ alias vi='nvim'
 alias whatismyip="curl -sf ipinfo.io | jq -r .'ip'"
 #zoxide
 alias cd='z'
+#bat
+alias cat="bat --paging=never"
 
 alias poetryrun="poetry run python -m"
+alias uvrun="uv run python -m"
 export_env(){ export $(cat "$1"/*.env) }
 
+alias dcuf="docker compose up --build -d && docker compose logs -f"
+alias dcbd="docker compose up --build -d"
+alias dclf="docker compose logs -f"
+alias dcbash="docker exec -it fastapi-server bash"
 
 alias ua-drop-caches='sudo paccache -rk3; yay -Sc --aur --noconfirm'
 alias ua-update-all='export TMPFILE="$(mktemp)"; \
@@ -23,3 +30,5 @@ alias ua-update-all='export TMPFILE="$(mktemp)"; \
       && sudo mv $TMPFILE /etc/pacman.d/mirrorlist \
       && ua-drop-caches \
       && yay -Syyu --noconfirm'
+
+alias neuriphy-update-ip="python3 ~/.aws_update_ip.py"
