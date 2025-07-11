@@ -19,7 +19,7 @@ if [ "$exists" = "" ]
 then
 	tmux new-session -d -s $session2 -n 'Load'
 	tmux send-keys -t $session2:Load.1 'nvtop' C-m
-	tmux split-window -h -t $session2
+	tmux split-window -v -t $session2
 	tmux send-keys -t $session2:Load.2 'btop' C-m
 	return
 fi

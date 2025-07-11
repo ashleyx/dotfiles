@@ -1,4 +1,7 @@
 
+alias dcuf="docker compose up --build -d && docker compose logs -f "
+alias dcbd="docker compose up --build -d"
+alias dclf="docker compose logs -f "
 
 export ZDOTDIR=$HOME/.config/zsh
 
