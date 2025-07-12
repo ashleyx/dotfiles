@@ -35,6 +35,3 @@ vim.lsp.config('pylsp', {
     },
 })
 
--- RUST
-
-require("rust-tools").setup()
