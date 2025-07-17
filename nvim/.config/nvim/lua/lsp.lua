@@ -35,3 +35,12 @@ vim.lsp.config('pylsp', {
     },
 })
 
+-- RUST
+
+require("mason-lspconfig").setup {
+    automatic_enable = {
+        exclude = {
+            "rust_analyzer",
+        }
+    }
+}
