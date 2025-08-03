@@ -39,3 +39,23 @@ map('n', 'b{', [[:BufferLineMovePrev<CR>]], {noremap = true , silent = true})
 
 map({'n'},'<Leader>c', [[gcc]], {remap = true, silent = true})
 map('v','<Leader>c', [[gc]], {remap = true, silent = true})
+
+-- Diagnostics Toggle --
+
+-- stolen from https://www.reddit.com/r/neovim/comments/11axh2p/comment/jasdwkr/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+vim.keymap.set('n', '<leader>d', function()
+    -- If we find a floating window, close it.
+    local found_float = false
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+        if vim.api.nvim_win_get_config(win).relative ~= '' then
+            vim.api.nvim_win_close(win, true)
+            found_float = true
+        end
+    end
+
+    if found_float then
+        return
+    end
+
+    vim.diagnostic.open_float(nil, { focus = false, scope = 'cursor' })
+end, { desc = 'Toggle Diagnostics' })
