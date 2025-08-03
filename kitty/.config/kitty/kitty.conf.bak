@@ -4,7 +4,7 @@
 macos_quit_when_last_window_closed yes
 confirm_os_window_close 0
 macos_hide_from_tasks no
-# macos_titlebar_color black
+macos_titlebar_color black
 
 
 # BEGIN_KITTY_FONTS
@@ -33,8 +33,9 @@ cursor_underline_thickness 2.0
 scrollback_lines -1
 
 #: Color scheme 
-# foreground #d0d0d0
-# background #222229
+
+foreground #d0d0d0
+background #222229
 
 #: The foreground and background colors.
 
@@ -81,28 +82,29 @@ bell_path ~/.config/kitty/bell.wav
 dynamic_background_opacity yes
 
 #: The color table 
-# color0 #393d4e
-# color8 #636760
-# color1 #b33
-# color9 #a11
-# color2  #297
-# color10 #5f7
-# color3  #fff2a0
-# color11 #fff376
-# color4  #69f
-# color12 #28f
-# color5  #808
-# color13 #a0a
-# color6  #8af
-# color14 #9cf
-# color7  #eef
-# color15 #efe
-# mark1_foreground black
-# mark1_background #98d3cb
-# mark2_foreground black
-# mark2_background #f2dcd3
-# mark3_foreground black
-# mark3_background #f274bc
+
+color0 #393d4e
+color8 #636760
+color1 #b33
+color9 #a11
+color2  #297
+color10 #5f7
+color3  #fff2a0
+color11 #fff376
+color4  #69f
+color12 #28f
+color5  #808
+color13 #a0a
+color6  #8af
+color14 #9cf
+color7  #eef
+color15 #efe
+mark1_foreground black
+mark1_background #98d3cb
+mark2_foreground black
+mark2_background #f2dcd3
+mark3_foreground black
+mark3_background #f274bc
 
 macos_option_as_alt yes
 
@@ -157,9 +159,3 @@ symbol_map U+e300-U+e3eb Symbols Nerd Font
 symbol_map U+21B5,U+25B8,U+2605,U+2630,U+2632,U+2714,U+E0A3,U+E615,U+E62B Symbols Nerd Font
 
 
-
-
-# BEGIN_KITTY_THEME
-# Terafox
-include current-theme.conf
-# END_KITTY_THEME
