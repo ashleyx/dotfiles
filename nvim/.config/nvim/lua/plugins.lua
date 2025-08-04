@@ -52,15 +52,14 @@ require("lazy").setup({
 			"nvim-telescope/telescope.nvim", -- filename and content search
 			dependencies = "nvim-lua/plenary.nvim",
 			lazy = false,
-			opts = custom_configs["telescope"],
 		},
 		{ "nvim-telescope/telescope-file-browser.nvim" }, -- telescope file browser extension
-		-- {
-		-- 	"akinsho/bufferline.nvim",
-		-- 	version = "*", -- prettier bufferline and movement
-		-- 	dependencies = "nvim-tree/nvim-web-devicons",
-		-- 	config = custom_configs["bufferline"],
-		-- },
+		{
+			"akinsho/bufferline.nvim",
+			version = "*", -- prettier bufferline and movement
+			dependencies = "nvim-tree/nvim-web-devicons",
+			config = {},
+		},
 		{
 			"lukas-reineke/indent-blankline.nvim", -- horizontal indent guide
 			main = "ibl",
@@ -84,8 +83,7 @@ require("lazy").setup({
 			end,
 		},
 		{ "tpope/vim-fugitive" }, -- git commands
-		{ "mbbill/undotree" },
-		-- { "voldikss/vim-floaterm" }, -- use only for git status now
+		{ "mbbill/undotree" }, -- tree history of edits <F5>
 		-- LSP THINGS
 		{
 			"mason-org/mason-lspconfig.nvim",

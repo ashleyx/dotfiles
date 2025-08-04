@@ -1,14 +1,19 @@
 {
     "layer": "top",
+	"reload_style_on_change":true,
     "position": "bottom",
     "spacing": 0,
-    "height": 15,
+    "height": 20,
     "modules-left": [
+		"custom/lock",
+		"custom/power",
         "custom/logo",
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "clock"
+		"clock",
+		"custom/uptime",
+		"custom/fill"
     ],
     "modules-right": [
         "tray",
@@ -20,7 +25,7 @@
 		"backlight"
     ],
     "wlr/taskbar": {
-        "format": "{icon}",
+        "format": "<span>{icon}</span>",
         "on-click": "activate",
         "on-click-right": "fullscreen",
         "icon-theme": "WhiteSur",
@@ -47,37 +52,38 @@
 	},
     "cpu": {
         "interval": 10,
-        "format": "{}% ",
-        "max-length": 10
+        "format": "<span></span> {}%",
+		"min-length":0
     },
     "memory": {
         "interval": 5,
         "format": "󰍛 {}%",
-        "max-length": 10
+		"min-length":0
     },
     "tray": {
-        "spacing": 10
+        "spacing": 10,
+		"show-passive-items":true
     },
     "clock": {
         "tooltip-format": "<tt>{calendar}</tt>",
-        "format": "  {:%a  ~  %d·%m·%Y  -  %H:%M:%S}",
+        "format": "  {:%a  ~  %d·%m·%Y  -  %H:%M:%S}"
     },
     "network": {
-        "format-wifi" : " {icon} ",
+        "format-wifi" : "<span>{icon}</span>",
         "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
-        "format-ethernet": "󰀂",
-	"format-alt" : "󱛇",
-        "format-disconnected" : "󰖪",
-	"tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "format-ethernet": "<span>󰀂</span>",
+	"format-alt" : "<span>󱛇</span>",
+        "format-disconnected" : "<span>󰖪</span>",
+	"tooltip-format-wifi": "<span>{icon}</span> {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
 	"tooltip-format-disconnected": "Disconnected",
-	"on-click": "kitty --class custom_ncpamixer ncpamixer",
-        "on-click-right": "~/.config/rofi/wifi/wifinew.sh &",
+	"on-click": "kitty --class custom_nmtui nmtui",
+	"on-right-click": "nmcli device wifi rescan",
 	"interval": 5,
-	"nospacing": 1,
+	"nospacing": 1
     },
     "pulseaudio": {
-        "format": " {icon} ",
+        "format": "<span>{icon}</span>",
         "format-bluetooth": "󰂰",
         "nospacing": 1,
         "tooltip-format": "Volume : {volume}%",
@@ -90,11 +96,11 @@
         "scroll-step": 5
     },
     "custom/logo": {
-        "format": "  ",
+        "format": "<span></span>",
         "tooltip": false
     },
     "battery": {
-        "format": "{capacity}% {icon}",
+        "format": "{capacity}% <span>{icon}</span>",
         "format-icons": {
             "charging": [
                 "󰢜",
@@ -131,11 +137,31 @@
     },
     "backlight": {
         "device": "brightnessctl",
-        "format": "{percent}% {icon}",
-        "format-alt": "{percent}% {icon}",
+        "format": "{percent}% <span>{icon}</span>",
+        "format-alt": "{percent}% <span>{icon}</span>",
         "format-alt-click": "click-right",
-        "format-icons": ["", "💡"],
+        "format-icons": [" "," "," "," "," "," "," "," "," "," "," "," "," "," "," "," "],
         "on-scroll-down": "brightnessctl set 5%-",
         "on-scroll-up": "brightnessctl set +5%"
-    }
+    },
+	"custom/uptime": {
+		"format": "{}",
+		"interval": 1600,
+		"exec": "sh -c '(uptime -p)'"
+  },
+	"custom/power": {
+		"tooltip": false,
+		"on-click": "wlogout &",
+		"format": "<span>⏻</span>"
+	},
+	"custom/lock": {
+		"tooltip": false,
+		"on-click": "swaylock --screenshots --clock --indicator --indicator-radius 100 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color bb00cc --key-hl-color 880033 --line-color 00000000 --inside-color 00000088 --separator-color 00000000",
+		"format": "<span></span>"
+	},
+	"custom/fill":{
+		"tooltip":false,
+		"expand":true,
+		"format":""
+	}
 }

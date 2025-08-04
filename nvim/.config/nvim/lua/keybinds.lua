@@ -36,6 +36,7 @@ end, { noremap = true })
 
 map("n", "<Leader>fb", telescope.buffers, { noremap = true })
 map("n", "<Leader>gb", telescope.git_branches, { noremap = true })
+map("n", "<Leader>gc", telescope.git_commits, { noremap = true })
 map("n", "<Leader>gs", telescope.git_status, { noremap = true })
 map("v", "<Leader>gb", telescope.git_bcommits_range, { noremap = true })
 

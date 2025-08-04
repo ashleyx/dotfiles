@@ -17,6 +17,8 @@ alias poetryrun="poetry run python -m"
 alias uvrun="uv run python -m"
 export_env(){ export $(cat "$1"/*.env) }
 
+alias icat="kitten icat"
+
 alias dcuf="docker compose up --build -d && docker compose logs -f"
 alias dcbd="docker compose up --build -d"
 alias dclf="docker compose logs -f"
@@ -31,4 +33,3 @@ alias ua-update-all='export TMPFILE="$(mktemp)"; \
       && ua-drop-caches \
       && yay -Syyu --noconfirm'
 
-alias neuriphy-update-ip="python3 ~/.aws_update_ip.py"
