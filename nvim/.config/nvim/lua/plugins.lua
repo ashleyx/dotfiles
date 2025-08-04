@@ -102,10 +102,8 @@ require("lazy").setup({
 		},
 		--- THEMES
 		{
-			"catppuccin/nvim",
-			lazy = true,
-			name = "catppuccin",
-			enabled = false,
+			"rose-pine/neovim",
+			name = "rose-pine",
 		},
 	},
 	-- Configure any other settings here. See the documentation for more details.

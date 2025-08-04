@@ -11,7 +11,7 @@ map({ "n", "v", "i" }, "<C-s>", [[<esc>:w<CR>]], { noremap = true, silent = true
 map({ "n", "v", "i" }, "<C-d>", [[<esc>:tabclose<CR>]], { noremap = true, silent = true })
 map("n", "gs", [[:G<CR><C-W>T]], { noremap = true, silent = true })
 
-map({ "x" }, "<Leader>p", [[\dP]], { noremap = true, silent = true })
+map({ "v" }, "<Leader>p", '"_dP', { noremap = true, silent = true })
 
 -- Keep selection after visual mode indent
 map("v", ">", [[>gv^]], { noremap = true, silent = true })
