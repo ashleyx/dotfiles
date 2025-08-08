@@ -1,4 +1,40 @@
-source ~/installs/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+autoload -Uz compinit
+compinit -D
+
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# Set the directory we want to store zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Download Zinit, if it's not there yet
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+# Source/Load zinit
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Add in Powerlevel10k
+
+# Add in zsh plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+
+# Add in snippets
+zinit snippet OMZP::sudo
+zinit snippet OMZP::archlinux
+zinit snippet OMZP::git-auto-fetch
+
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
 # TMUX -----------------------------------------------------------
 
 source $ZDOTDIR/.tmux-setup.sh
@@ -17,7 +53,6 @@ if [ "$(uname)" = "Darwin" ]; then
 	then
 		tmux attach -t Server
 	fi
-	# TODO aerospace list-workspaces --focused
 elif [ -n ${HYPRLAND_INSTANCE_SIGNATURE+x} ] && [ ! -v TMUX ]
 then
 	hypr_id=$(hyprctl activewindow -j | jq '.workspace.name')
@@ -60,29 +95,29 @@ fi
 # find /Users/ashleyx/git -name ".DS_Store" -depth -exec rm {} \;
 
 
-# POWERLVL10k -----------------------------------------------------------
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.cache/.histfile
 HISTSIZE=10000
 SAVEHIST=50000
+HISTDUP=erase
 setopt beep notify
+setopt sharehistory
+setopt appendhistory
+setopt hist_ignore_space
+setopt hist_ignore_dups
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+
 unsetopt autocd extendedglob nomatch
+
+
 bindkey -e
-# End of lines configured by zsh-newuser-install
-
-
-source ~/installs/powerlevel10k/powerlevel10k.zsh-theme
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+bindkey '^ ' autosuggest-accept
 
 source $ZDOTDIR/.zsh_aliases
 source $ZDOTDIR/.zshenv
-source <(fzf --zsh)
+# Shell integrations
+eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
-
-# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
+eval "$(oh-my-posh init zsh --config ~/.config/omp_config.toml)"

@@ -26,7 +26,7 @@ require("lazy").setup({
 	spec = {
 		{
 			"nvim-lualine/lualine.nvim", -- statusline
-			dependencies = { "kyazdani42/nvim-web-devicons" },
+			dependencies = { "nvim-tree/nvim-web-devicons" },
 			lazy = false,
 			config = custom_configs["lualine"],
 		},
@@ -55,18 +55,16 @@ require("lazy").setup({
 		},
 		{ "nvim-telescope/telescope-file-browser.nvim" }, -- telescope file browser extension
 		{
-			"akinsho/bufferline.nvim",
-			version = "*", -- prettier bufferline and movement
-			dependencies = "nvim-tree/nvim-web-devicons",
-			config = {},
-		},
-		{
 			"lukas-reineke/indent-blankline.nvim", -- horizontal indent guide
 			main = "ibl",
 			config = {},
 		},
 		{
-			"norcalli/nvim-colorizer.lua", -- color highlighting for hex values
+			"MeanderingProgrammer/render-markdown.nvim",
+			dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+			opts = {
+				completions = { lsp = { enabled = true } },
+			},
 		},
 		{ "jiangmiao/auto-pairs" }, -- pair for quotes and brackets when typing
 		{
