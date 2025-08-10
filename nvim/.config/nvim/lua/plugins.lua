@@ -81,6 +81,7 @@ require("lazy").setup({
 			end,
 		},
 		{ "tpope/vim-fugitive" }, -- git commands
+		{ "tpope/vim-surround" },
 		{ "mbbill/undotree" }, -- tree history of edits <F5>
 		-- LSP THINGS
 		{

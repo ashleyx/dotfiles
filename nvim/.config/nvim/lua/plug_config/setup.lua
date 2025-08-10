@@ -16,13 +16,11 @@ configs = {
 		},
 		signcolumn = true,
 	},
-
 	lualine = {
 		options = {
-			theme = "iceberg_dark",
+			theme = "auto",
 		},
 	},
-
 	treesitter = {
 		ensure_installed = { "lua", "rust", "python", "dockerfile", "bash", "r" },
 		ignore_install = { "javascript" },
