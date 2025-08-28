@@ -29,63 +29,14 @@ zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::git-auto-fetch
 
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# TMUX -----------------------------------------------------------
-
-source $ZDOTDIR/.tmux-setup.sh
-if [ "$(uname)" = "Darwin" ]; then
-	aerospace_id=$(aerospace list-workspaces --focused)
-	local_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Local | awk '{print $2}')
-	monitor_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Performance | awk '{print $2}')
-	server_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Server | awk '{print $2}')
-	if [ $aerospace_id = "2" ] && [ "$local_attached" = "0" ]
-	then
-		tmux attach -t Local
-	elif [ $aerospace_id = "10" ] && [ "$monitor_attached" = "0" ]
-	then
-		tmux attach -t Performance
-	elif [ $aerospace_id = "3" ] && [ "$server_attached" = "0" ]
-	then
-		tmux attach -t Server
-	fi
-elif [ -n ${HYPRLAND_INSTANCE_SIGNATURE+x} ] && [ ! -v TMUX ]
-then
-	hypr_id=$(hyprctl activewindow -j | jq '.workspace.name')
-	local_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Local | awk '{print $2}')
-	monitor_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Performance | awk '{print $2}')
-	server_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Server | awk '{print $2}')
-	if [ $hypr_id = "\"2\"" ] && [ "$local_attached" = "0" ]
-	then
-		tmux attach -t Local
-	elif [ $hypr_id = "\"special:magic\"" ] && [ "$monitor_attached" = "0" ]
-	then
-		tmux attach -t Performance
-	elif [ $hypr_id = "\"3\"" ] && [ "$server_attached" = "0" ]
-	then
-		tmux attach -t Server
-	fi
-elif [ "$XDG_SESSION_TYPE" = "wayland" ] && [ ! -v TMUX ]
-then
-	sway_id=$(swaymsg -t get_workspaces | jq '.[] | select(.focused==true) | .num')
-	local_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Local | awk '{print $2}')
-	monitor_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Performance | awk '{print $2}')
-	server_attached=$(tmux ls -F '#{session_name} #{session_attached}' | grep Server | awk '{print $2}')
-	if [ "$sway_id" = "2" ] && [ "$local_attached" = "0" ]
-	then
-		tmux attach -t Local
-	elif [ "$sway_id" = "10" ] && [ "$monitor_attached" = "0" ]
-	then
-		tmux attach -t Performance
-	elif [ "$sway_id" = "3" ] && [ "$server_attached" = "0" ]
-	then
-		tmux attach -t Server
-	fi
-fi
 
 # RUST BINDINGS -----------------------------------------------------------
 #if command -v rustc >/dev/null 2>&1; then
@@ -106,9 +57,26 @@ setopt hist_ignore_space
 setopt hist_ignore_dups
 setopt hist_save_no_dups
 setopt hist_find_no_dups
+setopt noflowcontrol
 
 unsetopt autocd extendedglob nomatch
 
+function sesh-sessions() {
+  {
+    exec </dev/tty
+    exec <&1
+    local session
+    session=$(sesh list -THtdz -c | fzf --ansi --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+    zle reset-prompt > /dev/null 2>&1 || true
+    [[ -z "$session" ]] && return
+    sesh connect $session
+  }
+}
+
+zle     -N             sesh-sessions
+bindkey -M emacs '^s' sesh-sessions
+bindkey -M vicmd '^s' sesh-sessions
+bindkey -M viins '^s' sesh-sessions
 
 bindkey -e
 bindkey '^p' history-search-backward

@@ -1,0 +1,8 @@
+name: monitor
+project_root: "/home/ashleyx"
+layout: even-vertical
+windows:
+  - monitor:
+      panes:
+        - nvtop
+        - btop
