@@ -1,0 +1,68 @@
+# vim: filetype=mma
+#
+# Global defaults that apply to all channels / accounts / stores
+
+# Create in both places
+Create Both
+# Do not remove if missing in one place
+Remove None
+# Permanently delete those messages marked for deletion
+Expunge Both
+# Synchronise everything
+Sync All
+SyncState *
+CopyArrivalDate yes
+MaxMessages 0
+
+# Office365 configuration
+
+IMAPAccount gat
+Host outlook.office365.com
+Port 993
+User ashleyx@geneandtonic.com
+AuthMechs XOAUTH2
+# Use Mutt's OAUTH2 token refresh script to decrypt and refresh
+PassCmd "/usr/share/neomutt/oauth2/mutt_oauth2.py ~/.password-store/outlook_email_token"
+# Use TLS
+TLSType IMAPS
+SystemCertificates yes
+Timeout 15
+
+
+imapstore gat-remote
+account gat
+
+maildirstore gat-local
+subfolders verbatim
+path ~/.mail/gat/
+inbox ~/.mail/gat/inbox/
+
+channel ashleyx@geneandtonic.com
+far :gat-remote:"INBOX"
+near :gat-local:inbox
+
+IMAPAccount personal
+Host imap.gmail.com
+Port 993
+User ashleythomasxavier@gmail.com
+PassCmd "pass show ashleythomasxavier@gmail.com"
+TLSType IMAPS
+TLSVersions +1.2
+AuthMechs LOGIN
+
+imapstore personal-remote
+account personal
+
+maildirstore personal-local
+subfolders verbatim
+path ~/.mail/personal/
+inbox ~/.mail/personal/inbox/
+
+channel ashleythomasxavier@gmail.com
+far :personal-remote:"INBOX"
+near :personal-local:inbox
+
+channel personal
+far :personal-remote:"INBOX"
+near :personal-local:inbox
+

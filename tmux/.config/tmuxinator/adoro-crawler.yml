@@ -1,0 +1,5 @@
+name: adoro-industries
+project_root: "/home/ashleyx/git/adoro/industry-keyword-crawler"
+windows:
+  - lazygit: lazygit
+  - zsh:

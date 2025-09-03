@@ -1,0 +1,5 @@
+name: mail
+project_root: "/home/ashleyx"
+windows:
+  - gat: neomutt -F $XDG_CONFIG_HOME/mutt/gat_muttrc
+  - gmail: neomutt -F $XDG_CONFIG_HOME/mutt/gmail_muttrc

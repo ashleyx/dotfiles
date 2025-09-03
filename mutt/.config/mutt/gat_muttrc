@@ -1,0 +1,3 @@
+source muttrc
+
+source /home/ashleyx/.config/mutt/accounts/ashleyx@geneandtonic.com.muttrc

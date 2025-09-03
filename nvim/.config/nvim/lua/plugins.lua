@@ -99,6 +99,7 @@ require("lazy").setup({
 			version = "^6", -- Recommended
 			lazy = false, -- This plugin is already lazy
 		},
+		"nathangrigg/vim-beancount",
 		--- THEMES
 		{
 			"rose-pine/neovim",

@@ -32,6 +32,9 @@ zinit snippet OMZP::git-auto-fetch
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
 
+
+export PATH="$PATH:$HOME/.local/share/cargo/bin/"
+
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
@@ -39,9 +42,9 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 
 # RUST BINDINGS -----------------------------------------------------------
-#if command -v rustc >/dev/null 2>&1; then
-        #source "$(rustc --print sysroot)"/share/zsh/site-functions/_cargo
-#fi
+# if command -v rustc >/dev/null 2>&1; then
+#         source "$(rustc --print sysroot)"/share/zsh/site-functions/_cargo
+# fi
 
 # find /Users/ashleyx/git -name ".DS_Store" -depth -exec rm {} \;
 

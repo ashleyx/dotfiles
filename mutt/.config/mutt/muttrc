@@ -1,0 +1,6 @@
+set ssl_starttls=yes
+set ssl_force_tls=yes
+set mailcap_path   = $HOME/.config/mutt/mutt-wizard/mailcap
+auto_view text/html
+
+source $HOME/.config/mutt/mutt-wizard/mutt-wizard.muttrc

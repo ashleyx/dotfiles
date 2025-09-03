@@ -1,0 +1,30 @@
+# vim: filetype=neomuttrc
+# muttrc file for account ashleythomasxavier@gmail.com
+source /usr/share/mutt-wizard/switch.muttrc
+set realname = "ashleythomasxavier"
+set from = "ashleythomasxavier@gmail.com"
+set sendmail = "msmtp -a ashleythomasxavier@gmail.com"
+alias me ashleythomasxavier <ashleythomasxavier@gmail.com>
+set folder = "/home/ashleyx/.mail/personal/"
+set header_cache = /home/ashleyx/.cache/mutt-wizard/ashleythomasxavier_gmail.com/headers/
+set message_cachedir = /home/ashleyx/.cache/mutt-wizard/ashleythomasxavier_gmail.com/bodies/
+set mbox_type = Maildir
+set hostname = "gmail.com"
+set spoolfile = +inbox
+set postponed = +Drafts
+set trash = +Trash
+set record = +Sent
+set imap_user = "ashleythomasxavier@gmail.com"
+set smtp_url = "smtps://ashleythomasxavier@smtp.gmail.com:465/"
+set folder = "imaps://imap.gmail.com:993/"
+
+set smtp_authenticators = "gssapi:login"
+set my_pass = "`pass ashleythomasxavier@gmail.com`"
+set imap_pass = $my_pass
+set smtp_pass = $my_pass
+
+macro index o "<shell-escape>mbsync ashleythomasxavier@gmail.com<enter>" "run mbsync to sync ashleythomasxavier@gmail.com"
+macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-secret-keys; printf 'Enter email ID of user to publish: '; read eID; printf 'Enter fingerprint of GPG key to publish: '; read eFGPT; /usr/libexec/gpg-wks-client --create \$eFGPT \$eID | msmtp --read-envelope-from --read-recipients -a ashleythomasxavier@gmail.com<enter>"  "publish GPG key to WKS provider"
+macro index \eh "<pipe-message>/usr/libexec/gpg-wks-client --receive | msmtp --read-envelope-from --read-recipients -a ashleythomasxavier@gmail.com<enter>" "confirm GPG publication"
+
+mailboxes "=Groups" "=INBOX" "=Notes" "=[Gmail]/All Mail" "=[Gmail]/Drafts" "=[Gmail]/Important" "=[Gmail]/Sent Mail" "=[Gmail]/Spam" "=[Gmail]/Starred" "=[Gmail]/Trash"

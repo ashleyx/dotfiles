@@ -1,0 +1,5 @@
+name: adoro-industries
+project_root: "/home/ashleyx/git/adoro/ai-industry-search-analysis"
+windows:
+  - lazygit: lazygit
+  - zsh:
