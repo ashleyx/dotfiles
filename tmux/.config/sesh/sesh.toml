@@ -1,0 +1,8 @@
+[default_session]
+startup_command = "git rev-parse --is-inside-work-tree &> /dev/null && lazygit"
+preview_command = "eza --all --git --icons --color=always {}"
+windows = [ "nvim" ]
+[[window]]
+name = "nvim"
+startup_command = "nvim"
+
