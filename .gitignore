@@ -2,3 +2,4 @@
 **/lazy-lock.json
 .zsh_sessions
 **.bak
+zsh/.config/zsh/.zsh_history
