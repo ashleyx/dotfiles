@@ -3,3 +3,5 @@
 .zsh_sessions
 **.bak
 zsh/.config/zsh/.zsh_history
+git/.gitconfig
+zsh/.config/zsh/.zcompdump

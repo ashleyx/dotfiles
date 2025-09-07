@@ -45,3 +45,6 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}"/python/pythonrc
 export PYTHONUNBUFFERED=1
+# GPG
+export GPG_TTY=$(tty)
+

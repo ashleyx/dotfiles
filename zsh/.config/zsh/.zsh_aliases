@@ -15,7 +15,6 @@ alias bat="bat --paging=never"
 alias mux="tmuxinator"
 alias poetryrun="poetry run python -m"
 alias uvrun="uv run python -m"
-export_env(){ export $(cat "$1"/*.env) }
 
 alias icat="kitten icat"
 
