@@ -86,6 +86,7 @@ source $ZDOTDIR/.zshenv
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(oh-my-posh init zsh --config ~/.config/omp_config.toml)"
+eval "$(direnv hook zsh)"
 
 autoload -Uz compinit
 if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ${XDG_DATA_HOME:-${HOME}/.local/share}/.zcompdump 2>/dev/null)" ]; then
