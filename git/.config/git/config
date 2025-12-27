@@ -41,7 +41,7 @@ freebase = "!f() { \
 	}; f"
 
 [core]
-	excludesFile = ~/.gitignore
+	excludesFile = ~/.config/git/.gitignore
 	editor = nvim
 [diff]
     tool = nvimdiff

@@ -5,3 +5,5 @@
 **.sqlite
 .envrc
 .DS_Store
+.git/**
+
