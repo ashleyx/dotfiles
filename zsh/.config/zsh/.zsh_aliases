@@ -22,13 +22,20 @@ alias dcuf="docker compose up --build -d && docker compose logs -f"
 alias dcbd="docker compose up --build -d"
 alias dclf="docker compose logs -f"
 alias dcbash="docker exec -it fastapi-server bash"
-
-alias ua-drop-caches='sudo paccache -rk3; yay -Sc --aur --noconfirm'
-alias ua-update-all='export TMPFILE="$(mktemp)"; \
-    sudo true; \
-    rate-mirrors --save=$TMPFILE arch --max-delay=21600 \
-      && sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
-      && sudo mv $TMPFILE /etc/pacman.d/mirrorlist \
-      && ua-drop-caches \
-      && yay -Syyu --noconfirm'
+#OS Specific alises
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	alias adb='HOME="$XDG_DATA_HOME"/android adb'
+	alias open="xdg-open"
+	alias ua-drop-caches='sudo paccache -rk3; yay -Sc --aur --noconfirm'
+	alias ua-update-all='export TMPFILE="$(mktemp)"; \
+		sudo true; \
+		rate-mirrors --save=$TMPFILE arch --max-delay=21600 \
+		  && sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
+		  && sudo mv $TMPFILE /etc/pacman.d/mirrorlist \
+		  && ua-drop-caches \
+		  && yay -Syyu --noconfirm'
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+        # Mac OSX
+fi
 

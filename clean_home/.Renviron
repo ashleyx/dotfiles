@@ -1,0 +1,5 @@
+#You may find it necessary to append this line to the end of `/usr/lib/R/library/base/R/Rprofile`:
+#
+#```R.libPaths( c( "$XDG_DATA_HOME/R/x86_64-pc-linux-gnu-library/" , .libPaths() ) )```
+
+R_LIBS_USER="$XDG_DATA_HOME"/R/x86_64-pc-linux-gnu-library

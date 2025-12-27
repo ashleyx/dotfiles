@@ -6,6 +6,7 @@ vim.api.nvim_create_autocmd("bufwritepost", {
 	pattern = "*.py",
 	group = "AutoFormat",
 	callback = function()
+		vim.cmd(":silent !ruff check --select I --fix --unsafe-fixes%")
 		vim.cmd(":silent !ruff format --line-length 120 %")
 	end,
 })

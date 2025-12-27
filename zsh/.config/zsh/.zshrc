@@ -28,6 +28,7 @@ export PATH="$PATH:$GEM_HOME/bin"
 
 
 export PATH="$PATH:$HOME/.local/share/cargo/bin/"
+export PATH="$PATH:$HOME/.local/bin/"
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -93,6 +94,25 @@ if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ${XDG_DATA_HOME:-${HOME}/.local
     compinit
 else
     compinit -C
+fi
+
+#OS Specific Changes 
+export PSQL_HISTORY="$XDG_DATA_HOME/psql_history"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmr
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+	export KERAS_HOME="${XDG_STATE_HOME}/keras"
+	export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
+	export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
+	export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+	export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
+	export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+	export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+	export GOPATH="$XDG_DATA_HOME"/go
+	export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+	export ANDROID_USER_HOME="$XDG_DATA_HOME"/android 
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+        # Mac OSX
 fi
 
 # zprof
