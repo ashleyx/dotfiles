@@ -1,4 +1,5 @@
 # vim: filetype=neomuttrc
+# vim: syntax=neomuttrc
 # muttrc file for account ashleyx@geneandtonic.com
 source /usr/share/mutt-wizard/switch.muttrc
 set realname = "ashleyx"
@@ -22,6 +23,7 @@ set smtp_authenticators = "xoauth2"
 set imap_authenticators = "xoauth2"
 set imap_oauth_refresh_command = "/usr/share/neomutt/oauth2/mutt_oauth2.py $HOME/.password-store/outlook_email_token"
 set smtp_oauth_refresh_command = "/usr/share/neomutt/oauth2/mutt_oauth2.py $HOME/.password-store/outlook_email_token"
+set new_mail_command = "notify-send ‘new work email received’ ‘%n new messages, %u unread.’ &"
 
 
 macro index o "<shell-escape>mbsync ashleyx@geneandtonic.com<enter>" "run mbsync to sync ashleyx@geneandtonic.com"

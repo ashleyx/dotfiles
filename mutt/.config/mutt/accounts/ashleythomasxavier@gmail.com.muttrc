@@ -1,3 +1,4 @@
+# vim: syntax=neomuttrc
 # vim: filetype=neomuttrc
 # muttrc file for account ashleythomasxavier@gmail.com
 source /usr/share/mutt-wizard/switch.muttrc
@@ -22,6 +23,7 @@ set smtp_authenticators = "gssapi:login"
 set my_pass = "`pass ashleythomasxavier@gmail.com`"
 set imap_pass = $my_pass
 set smtp_pass = $my_pass
+set new_mail_command="notify-send ‘new personal email received’ ‘%n new messages, %u unread.’ &"
 
 macro index o "<shell-escape>mbsync ashleythomasxavier@gmail.com<enter>" "run mbsync to sync ashleythomasxavier@gmail.com"
 macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-secret-keys; printf 'Enter email ID of user to publish: '; read eID; printf 'Enter fingerprint of GPG key to publish: '; read eFGPT; /usr/libexec/gpg-wks-client --create \$eFGPT \$eID | msmtp --read-envelope-from --read-recipients -a ashleythomasxavier@gmail.com<enter>"  "publish GPG key to WKS provider"
