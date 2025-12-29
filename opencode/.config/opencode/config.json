@@ -5,7 +5,7 @@
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",
       "options": {
-        "baseURL": "http://spark:11434/v1/"
+        "baseURL": "http://spark-3a2c:11434/v1/"
       },
       "models": {
         "qwen3-coder:latest": {
