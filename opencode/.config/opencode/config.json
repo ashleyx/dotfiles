@@ -5,23 +5,13 @@
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",
       "options": {
-        "baseURL": "http://localhost:11434/v1/"
+        "baseURL": "http://spark:11434/v1/"
       },
       "models": {
         "qwen3-coder:latest": {
           "name": "qwen3-coder:latest",
           "reasoning": true,
           "tool_call": true
-        },
-        "dolphin3:latest": {
-          "name": "dolphin3:latest",
-          "reasoning": true,
-          "tool_call": false
-        },
-        "deepseek-r1:latest": {
-          "name": "deepseek-r1:latest",
-          "reasoning": true,
-          "tool_call": false,
         }
       }
     }

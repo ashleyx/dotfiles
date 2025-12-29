@@ -6,3 +6,15 @@ windows = [ "nvim" ]
 name = "nvim"
 startup_command = "nvim"
 
+[[session]]
+name="EKS DEV"
+startup_command="k9s --context arn:aws:eks:us-east-1:597088057029:cluster/us-east-1-dev-cluster -n neuriphy"
+
+[[session]]
+name="EKS DEMO"
+startup_command="k9s --context arn:aws:eks:us-east-1:597088057029:cluster/us-east-1-dev-cluster -n demo"
+
+[[session]]
+name="EKS PROD"
+startup_command="k9s --context arn:aws:eks:us-east-1:597088057029:cluster/us-east-1-prod-cluster -n app"
+
