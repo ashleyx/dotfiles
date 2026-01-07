@@ -1,7 +1,8 @@
 # zmodload zsh/zprof
 
-if [[ -f "/opt/homebrew/bin/brew" ]] then
+if [[ "$OSTYPE" == "darwin"* ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
+  export PATH="/usr/local/bin:$PATH"
 fi
 
 # Set the directory we want to store zinit and plugins

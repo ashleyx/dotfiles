@@ -6,4 +6,6 @@
 .envrc
 .DS_Store
 .git/**
-
+**/worktrees/
+**/.coverage
+**/tmp/
