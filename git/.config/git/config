@@ -65,3 +65,5 @@ freebase = "!f() { \
 	autosquash = true
 [commit]
 	gpgsign = true
+[submodule]
+	recurse = true
